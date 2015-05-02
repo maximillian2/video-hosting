@@ -1,0 +1,41 @@
+<%= render partial: 'shared/menu_bar' %>
+
+  <div class="container">
+    <div class="row">
+      <!-- sidebar menu-->
+      <div class="col-md-3">
+        <h3>My list</h3>
+        <hr/>
+        <h3>Categories</h3>
+        <ul class="list-group">
+          <li class="list-group-item btn"><span class="badge">999</span>Anime</li>
+          <li class="list-group-item btn"><span class="badge">1337</span>Films</li>
+          <li class="list-group-item btn"><span class="badge">-5</span>Cartoons</li>
+        </ul>
+        <hr/>
+        <h3>Tags</h3>
+        <p>Not realised yet.</p>
+      </div>
+      <!-- sidebar menu end-->
+
+      <div class="col-md-9">
+        <div class="row">
+              <% @films.each do |film| %>
+              <div class="col-md-3 col-sm-6">
+                <a class="thumbnail">
+                  <img src="/assets/thumb.svg" alt="cool_pic"/>
+                </a>
+                  <p class="text-center">
+                    Film ID: <%= film.id%> <br/>
+                    Name: <%= link_to film.name, film_path(film) %> <br/>
+                    Year: <%= film.year %> <br/>
+                    Rating: <%= film.rating %> <br/> <br/>
+                    <%= link_to 'Edit', edit_film_path(film), class: 'btn btn-info' %>
+                    <%= link_to 'Delete', film, class: 'btn btn-danger', method: :delete, data: { confirm: 'Confirm deleting, please.' } %> <br/>
+                  </p>
+              </div>
+              <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

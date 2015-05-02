@@ -1,0 +1,13 @@
+<%= render partial: 'shared/menu_bar' %>
+
+<div class="container">
+  <div class="row">
+    <div class="center-block">
+      <h1>Edit film#<%= @film.id %></h1>
+      <%= form_for @film do |f| %>
+        <%= render partial: 'shared/form', locals: { f: f } %>
+        <%= f.submit 'Update film', class: 'btn btn-success'%>
+      <% end %>
+    </div>
+  </div>
+</div>
