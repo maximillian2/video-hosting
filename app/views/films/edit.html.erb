@@ -2,12 +2,20 @@
 
 <div class="container">
   <div class="row">
-    <div class="center-block">
-      <h1>Edit film#<%= @film.id %></h1>
-      <%= form_for @film do |f| %>
-        <%= render partial: 'shared/form', locals: { f: f } %>
-        <%= f.submit 'Update film', class: 'btn btn-success'%>
-      <% end %>
+
+    <div class="col-md-3">
+      <%= render partial: 'shared/side_menu' %>
     </div>
+
+    <div class="col-md-9">
+        <div class="center-block">
+          <h1>Edit film#<%= @film.id %></h1>
+          <%= form_for @film do |f| %>
+            <%= render partial: 'shared/form', locals: { f: f } %>
+            <%= f.submit 'Update film', class: 'btn btn-success'%>
+          <% end %>
+        </div>
+    </div>
+
   </div>
 </div>

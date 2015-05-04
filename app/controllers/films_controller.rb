@@ -44,7 +44,7 @@ class FilmsController < ApplicationController
 
   private
     def allowed_params
-      params.require(:film).permit(:name, :year, :rating)
+      params.require(:film).permit(:name, :year, :genre, :rating)
     end
 
     def find_item
