@@ -3,9 +3,10 @@
 <hr/>
 <h3>Categories</h3>
 <ul class="list-group">
-  <li class="list-group-item btn"><span class="badge">999</span>Anime</li>
-  <li class="list-group-item btn"><span class="badge">1337</span>Films</li>
-  <li class="list-group-item btn"><span class="badge">-5</span>Cartoons</li>
+  <li class="list-group-item btn"><span class="badge"> <%= Film.all.count %> </span>All</li>
+  <li class="list-group-item btn"><span class="badge"> <%= Film.all.where(genre: 'anime').count %> </span>Anime</li>
+  <li class="list-group-item btn"><span class="badge"> <%= Film.all.where(genre: 'film').count %> </span>Films</li>
+  <li class="list-group-item btn"><span class="badge"> <%= Film.all.where(genre: 'cartoon').count %> </span>Cartoons</li>
 </ul>
 <hr/>
 <h3>Tags</h3>
