@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   # Set root URL
   root :to => 'films#index'
+
+  get 'search', to: 'films#search'
 end

@@ -3,7 +3,9 @@ class FilmsController < ApplicationController
   before_filter :find_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @films = Film.all
+    # @films = Film.all
+    @films = Film.where(nil)
+    @films = @films.genre(params[:category]) if params[:category].present?
   end
 
   def show
@@ -37,6 +39,14 @@ class FilmsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search_field].present?
+      @search_result = Film.where(name: params[:search_field])
+    else
+      render 'search'
+    end
+  end
+
   def destroy
     @film.destroy
     redirect_to films_path
@@ -50,4 +60,5 @@ class FilmsController < ApplicationController
     def find_item
       @film = Film.find(params[:id])
     end
+
 end
