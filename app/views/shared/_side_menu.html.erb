@@ -5,9 +5,9 @@
 
 <ul class="nav nav-pills nav-stacked" id="sidebar-menu" >
     <%= link_to_in_li 'All', Film.all.count , root_path,  id: "all_link" %>
-    <%= link_to_in_li 'Anime', Film.all.where(genre: 'anime').count, '/films?category=anime',  id: "anime_link" %>
-    <%= link_to_in_li 'Films', Film.all.where(genre: 'film').count, '/films?category=film',  id: "films_link" %>
-    <%= link_to_in_li 'Cartoons', Film.all.where(genre: 'cartoon').count, '/films?category=cartoon',  id: "cartoons_link" %>
+    <%= link_to_in_li 'Anime', Film.all.where(genres: 'anime').count, '/films?category=anime',  id: "anime_link" %>
+    <%= link_to_in_li 'Films', Film.all.where(genres: 'film').count, '/films?category=film',  id: "films_link" %>
+    <%= link_to_in_li 'Cartoons', Film.all.where(genres: 'cartoon').count, '/films?category=cartoon',  id: "cartoons_link" %>
 </ul>
 
 <hr/>

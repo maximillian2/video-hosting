@@ -28,13 +28,13 @@
             <% @search_result.each do |item| %>
                 <div class="col-md-3 col-sm-6">
                   <a class="thumbnail">
-                    <img src="/assets/thumb.svg" alt="cool_pic"/>
+                    <img src="<%= item.image %>" alt="poster"/>
                   </a>
                   <p class="text-center">
                     Film ID: <%= item.id%> <br/>
-                    Name: <%= link_to item.name, film_path(item) %> <br/>
+                    Name: <%= link_to item.title, film_path(item) %> <br/>
                     Year: <%= item.year %> <br/>
-                    Genre: <%= item.genre %> <br/>
+                    Genre: <%= item.genres %> <br/>
                     Rating: <%= item.rating %> <br/> <br/>
                     <%= link_to 'Edit', edit_film_path(item), class: 'btn btn-info' %>
                     <%= link_to 'Delete', item, class: 'btn btn-danger', method: :delete, data: { confirm: 'Confirm deleting, please.' } %> <br/>

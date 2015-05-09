@@ -12,16 +12,19 @@
               <% @films.each do |film| %>
               <div class="col-md-3 col-sm-6">
                 <a class="thumbnail">
-                  <img src="/assets/thumb.svg" alt="cool_pic"/>
+                  <img src="<%= film.image %>" alt="poster"/>
                 </a>
                   <p class="text-center">
-                    Film ID: <%= film.id%> <br/>
-                    Name: <%= link_to film.name, film_path(film) %> <br/>
+                    <!-- film_path(film)-->
+                    Name: <%= link_to film.title, film.link %> <br/>
+                    Original name: <%= film.original_title %> <br/>
+                    Genres: <%= film.genres %> <br/>
+                    Category: <%= film.category %> <br/>
                     Year: <%= film.year %> <br/>
-                    Genre: <%= film.genre %> <br/>
+                    Country: <%= film.country %> <br/>
                     Rating: <%= film.rating %> <br/> <br/>
                     <%= link_to 'Edit', edit_film_path(film), class: 'btn btn-info' %>
-                    <%= link_to 'Delete', film, class: 'btn btn-danger', method: :delete, data: { confirm: 'Confirm deleting, please.' } %> <br/>
+                    <%= link_to 'Delete', film, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %> <br/>
                   </p>
               </div>
               <% end %>

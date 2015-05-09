@@ -7,12 +7,10 @@ gem 'rails', '4.2.0'
 gem 'sqlite3'
 
 
-gem 'bootstrap-sass', '~> 3.3.4'
-gem 'sass-rails', '>= 3.2'
 # Use SCSS for stylesheets
-# gem 'sass-rails'
+gem 'sass-rails', '>= 3.2'
 # Basic gem to work with bootstrap
-# gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -49,6 +47,11 @@ group :development, :test do
   gem 'spring'
 end
 
-
 # Awesome icons
 gem 'font-awesome-rails'
+
+# Parse HTML woth xPath
+gem 'nokogiri', :require => 'nokogiri'
+
+# Awesome gem for IMDB support
+gem 'filmbuff'
