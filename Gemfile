@@ -58,3 +58,5 @@ gem 'nokogiri', :require => 'nokogiri'
 
 # Awesome gem for IMDB support
 gem 'filmbuff'
+
+ruby '2.2.0'
