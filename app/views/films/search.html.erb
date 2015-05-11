@@ -31,10 +31,12 @@
                     <img src="<%= item.image %>" alt="poster"/>
                   </a>
                   <p class="text-center">
-                    Film ID: <%= item.id%> <br/>
-                    Name: <%= link_to item.title, film_path(item) %> <br/>
+                    Name: <%= link_to item.title, item.link %> <br/>
+                    Original name: <%= item.original_title %> <br/>
+                    Genres: <%= item.genres.split(', ').first %> <br/>
+                    Category: <%= item.category %> <br/>
                     Year: <%= item.year %> <br/>
-                    Genre: <%= item.genres %> <br/>
+                    Country: <%= item.country %> <br/>
                     Rating: <%= item.rating %> <br/> <br/>
                     <%= link_to 'Edit', edit_film_path(item), class: 'btn btn-info' %>
                     <%= link_to 'Delete', item, class: 'btn btn-danger', method: :delete, data: { confirm: 'Confirm deleting, please.' } %> <br/>

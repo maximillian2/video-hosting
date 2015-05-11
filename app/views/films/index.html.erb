@@ -10,22 +10,30 @@
       <div class="col-md-9">
         <div class="row">
               <% @films.each do |film| %>
-              <div class="col-md-3 col-sm-6">
-                <a class="thumbnail">
+              <div class="col-md-4 col-sm-6 col-lg-3">
+                <div class="text-center thumbnail">
                   <img src="<%= film.image %>" alt="poster"/>
-                </a>
-                  <p class="text-center">
-                    <!-- film_path(film)-->
+                  <div class="poster-actions">
+                    <!-- TODO move this to helper-->
+                    <div class="poster-actions-inner">
+                      <button type="button"><i class="fa fa-eye fa-fw"></i></button>
+                      <button type="button" class="video-item-delete"><i class="fa fa-times fa-fw"></i></button>
+                    </div>
+                  </div>
+                </div>
+                  <p class="text-center nice-height">
                     Name: <%= link_to film.title, film.link %> <br/>
                     Original name: <%= film.original_title %> <br/>
-                    Genres: <%= film.genres %> <br/>
+                    <!--Genres: <#%= film.genres %> <br/>-->
                     Category: <%= film.category %> <br/>
                     Year: <%= film.year %> <br/>
                     Country: <%= film.country %> <br/>
                     Rating: <%= film.rating %> <br/> <br/>
+                  </p>
+                <p class="text-center">
                     <%= link_to 'Edit', edit_film_path(film), class: 'btn btn-info' %>
                     <%= link_to 'Delete', film, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %> <br/>
-                  </p>
+                </p>
               </div>
               <% end %>
         </div>

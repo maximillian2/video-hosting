@@ -4,9 +4,9 @@ class FilmsController < ApplicationController
   before_filter :find_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @films = Film.all
     @films = Film.where(nil)
-    @films = @films.genres(params[:category]) if params[:category].present?
+    @films = @films.where('genres LIKE ?', "%#{params[:genre]}%") if params[:genre].present?
+    @films = @films.category(params[:category]) if params[:category].present?
   end
 
   def show
@@ -39,12 +39,19 @@ class FilmsController < ApplicationController
     # что делать с аниме?
     # и с фильмами, которых нету на имдб
     original_title = doc.xpath("//div[@itemprop='alternativeHeadline']").text
-    @film.original_title = original_title
+    @film.original_title = original_title.empty? ? '–' : original_title
     @film.image = doc.xpath("//img[@itemprop='image']").attr('src').value
     @film.country = result[0]['country'][0]
 
-    imdb = FilmBuff::IMDb.new
-    @film.rating = imdb.find_by_title(@film.original_title).rating
+    # TODO add rating search for rus tv shows
+    # TODO  fix this code pls :/
+    if @film.original_title == '–'
+      @film.rating = 228
+    else
+      imdb = FilmBuff::IMDb.new
+      rating_value = imdb.find_by_title(@film.original_title)
+      @film.rating = rating_value.nil? ? 0 : rating_value.rating
+    end
 
     if @film.save
       redirect_to films_path
@@ -66,7 +73,7 @@ class FilmsController < ApplicationController
 
   def search
     if params[:search_field].present?
-      @search_result = Film.where(title: params[:search_field])
+      @search_result = Film.where('title LIKE ?', "%#{params[:search_field]}%")
     else
       render 'search'
     end

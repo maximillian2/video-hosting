@@ -1,18 +1,41 @@
 <!-- sidebar menu-->
-<h3>My list</h3>
+<h3>Мой список</h3>
 <hr/>
-<h3>Categories</h3>
+<h3>Жанры</h3>
 
 <ul class="nav nav-pills nav-stacked" id="sidebar-menu" >
-    <%= link_to_in_li 'All', Film.all.count , root_path,  id: "all_link" %>
-    <%= link_to_in_li 'Anime', Film.all.where(genres: 'anime').count, '/films?category=anime',  id: "anime_link" %>
-    <%= link_to_in_li 'Films', Film.all.where(genres: 'film').count, '/films?category=film',  id: "films_link" %>
-    <%= link_to_in_li 'Cartoons', Film.all.where(genres: 'cartoon').count, '/films?category=cartoon',  id: "cartoons_link" %>
+    <%= link_to_in_li 'Все', Film.count , root_path,  id: "all_link" %>
+    <%= link_to_in_li 'Аниме', Film.where('genres LIKE ?', "%аниме%").count, '/films?genre=аниме',  id: "anime_link" %>
+    <%= link_to_in_li 'Боевик', Film.where('genres LIKE ?', "%боевик%").count, '/films?genre=боевик',  id: "action_movie_link" %>
+    <%= link_to_in_li 'Детектив', Film.where('genres LIKE ?', "%детектив%").count, '/films?genre=детектив',  id: "detective_link" %>
+    <%= link_to_in_li 'Драма', Film.where('genres LIKE ?', "%драма%").count, '/films?genre=драма',  id: "drama_link" %>
+    <%= link_to_in_li 'Документальный', Film.where('genres LIKE ?', "%документальный%").count, '/films?genre=документальный',  id: "documentary_link" %>
+    <%= link_to_in_li 'Комедия', Film.where('genres LIKE ?', "%комедия%").count, '/films?genre=комедия',  id: "comedy_link" %>
+    <%= link_to_in_li 'Приключения', Film.where('genres LIKE ?', "%приключения%").count, '/films?genre=приключения',  id: "adventure_link" %>
+    <%= link_to_in_li 'Семейный', Film.where('genres LIKE ?', "%семейный%").count, '/films?genre=семейный',  id: "family_link" %>
+    <%= link_to_in_li 'Триллер', Film.where('genres LIKE ?', "%триллер%").count, '/films?genre=триллер',  id: "thriller_link" %>
+    <%= link_to_in_li 'Ужасы', Film.where('genres LIKE ?', "%ужасы%").count, '/films?genre=ужасы',  id: "horror_link" %>
+    <%= link_to_in_li 'Фантастика', Film.where('genres LIKE ?', "%фантастика%").count, '/films?genre=фантастика',  id: "fiction_link" %>
+    <%= link_to_in_li 'Фэнтези', Film.where('genres LIKE ?', "%фэнтези%").count, '/films?genre=фэнтези',  id: "fantasy_link" %>
+    <%= link_to_in_li 'Эротика', Film.where('genres LIKE ?', "%эротика%").count, '/films?genre=эротика',  id: "erotica_link" %>
 </ul>
 
 <hr/>
 
-<h3>Tags</h3>
+<h3>Категории</h3>
 
+<ul class="nav nav-pills nav-stacked" id="sidebar-category" >
+  <%= link_to_in_li 'Фильмы', Film.category('Фильмы').count, '/films?category=Фильмы',  id: "films_link" %>
+  <%= link_to_in_li 'Сериалы', Film.category('Сериалы').count, '/films?category=Сериалы',  id: "series_link" %>
+  <%= link_to_in_li 'Мультфильмы', Film.category('Мультфильмы').count, '/films?category=Мультфильмы',  id: "cartoons_link" %>
+  <%= link_to_in_li 'Мультсериалы', Film.category('Мультсериалы').count, '/films?category=Мультсериалы',  id: "cartoon_series_link" %>
+  <%= link_to_in_li 'Телепередачи', Film.category('Телепередачи').count, '/films?category=Телепередачи',  id: "shows_link" %>
+  <%= link_to_in_li 'Концерты', Film.category('Концерты').count, '/films?category=Концерты',  id: "concerts_link" %>
+</ul>
+
+<hr/>
+
+<h3>Тэги</h3>
 <p>Not realised yet.</p>
+
 <!-- sidebar menu end-->

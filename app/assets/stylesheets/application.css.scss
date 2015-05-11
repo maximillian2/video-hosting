@@ -31,6 +31,66 @@ body {
 }
 
 .thumbnail img {
-  width: 185px;
+  width: 185px !important;
   height: 270px;
+  padding: 0;
+  display: inline;
+}
+
+.thumbnail {
+  position: relative;
+  width: 185px !important;
+  height: 270px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+.nice-height {
+  height: 200px;
+}
+
+.poster-actions {
+  position: absolute;
+  top: 220px;
+  left: 0px;
+  width: 185px;
+  height: 50px;
+  //background-color: #000;
+  //opacity: 0.8;
+}
+
+.poster-actions-inner {
+  width: 185px;
+  height: 50px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.poster-actions-inner button {
+  width: 34px;
+  height: 34px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  color: #fff;
+  background: none;
+  margin-left: 5px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.poster-actions-inner button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.poster-actions-inner button:active {
+  background-color: #ccc;
+  color: #000;
+}
+
+.poster-actions-inner button:focus {
+  outline: none;
+  color: #fff;
 }
