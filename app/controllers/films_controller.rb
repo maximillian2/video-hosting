@@ -1,4 +1,3 @@
-
 class FilmsController < ApplicationController
 
   before_filter :find_item, only: [:show, :edit, :update, :destroy]
@@ -22,17 +21,17 @@ class FilmsController < ApplicationController
     @film = Film.new
 
     if params[:add_field]
-      add_field = params[:add_field]
-      request =  Net::HTTP.get(URI.parse(URI.encode("http://fs.to/search.aspx?f=quick_search&search=#{add_field}&section=video")))
-      @add_result = ActiveSupport::JSON.decode(request)
+      # Strip whitespaces for '+' to build correct GET request
+      add_field = params[:add_field].tr(' ', '+')
+      url = "http://fs.to/search.aspx?f=quick_search&search=#{add_field}&section=video"
+      request = Net::HTTP.get(URI.parse(URI.encode(url)))
+      # Parse JSON response and delete records that don't belong to 'video' section
+      @add_result = ActiveSupport::JSON.decode(request).delete_if { |hash| hash['section'] != 'video' }
       @add_result.map do |i|
-        p i
-        # TODO skip if not in section video
-        # doc = Nokogiri::HTML(open("#{ 'http://www.fs.to' + i['link'] }"))
-        # itemprop_image = doc.xpath("//img[@itemprop='image']")
-        # unless itemprop_image.nil?
-        #   i['poster'] = itemprop_image.attr('src').value
-        # end
+        doc = Nokogiri::HTML(open("#{ 'http://www.fs.to' + i['link'] }"))
+        itemprop_image = doc.xpath("//img[@itemprop='image']")
+        # Get the link of original image poster through XPath
+        i['poster'] = itemprop_image.attr('src').value
       end
     else
       render 'new'
@@ -42,7 +41,6 @@ class FilmsController < ApplicationController
   def create
     @film = Film.new
 
-    p params[:post]
     @film.image = params['poster']
     @film.title = params['title']
     @film.link = params['link']
@@ -50,27 +48,23 @@ class FilmsController < ApplicationController
     @film.category = params['category']
     @film.year = params['year']
     @film.country = params['country']
-    # TODO make original title and ratings
-    # doc = Nokogiri::HTML(open("#{ @film.link }"))
 
-    # FIXME
-    # что делать с аниме?
-    # и с фильмами, которых нету на имдб
-    # original_title = doc.xpath("//div[@itemprop='alternativeHeadline']").text
-    # @film.original_title = original_title.empty? ? '–' : original_title
+    p @film
 
-    # @film.image = doc.xpath("//img[@itemprop='image']").attr('src').value
-    # @film.country = result[0]['country'][0]
+    doc = Nokogiri::HTML(open("#{ @film.link }"))
 
-    # TODO add rating search for rus tv shows
-    # TODO  fix this code pls :/
-    # if @film.original_title == '–'
-    #   @film.rating = 0
-    # else
-    #   imdb = FilmBuff::IMDb.new
-    #   rating_value = imdb.find_by_title(@film.original_title)
-    #   @film.rating = rating_value.nil? ? 0 : rating_value.rating
-    # end
+    original_title = doc.xpath("//div[@itemprop='alternativeHeadline']").text
+     if original_title.empty?
+       @film.original_title = '–'
+       @film.rating = 0
+     else
+       @film.original_title = original_title
+       ## TODO вопрос аниме открыт
+      # imdb = FilmBuff::IMDb.new
+      # rating_value = imdb.find_by_title(@film.original_title)
+      # @film.rating = rating_value.rating
+      # @film.rating = rating_value.nil? ? 0 : rating_value.rating
+     end
 
     if @film.save
       redirect_to films_path
@@ -93,9 +87,8 @@ class FilmsController < ApplicationController
   def search
     if params[:search_field]
       # TODO make search input text capitalized
-      p params[:search_field]
-      search_result = params[:search_field].titleize
-      p search_result
+      search_result = params[:search_field]
+      p search_result.capitalize
       @search_result = Film.where('title LIKE ?', "%#{search_result}%")
     else
       render 'search'
@@ -108,12 +101,12 @@ class FilmsController < ApplicationController
   end
 
   private
-    def allowed_params
-      params.require(:film).permit(:title, :year, :genres, :rating)
-    end
+  def allowed_params
+    params.require(:film).permit(:title, :year, :genres, :rating)
+  end
 
-    def find_item
-      @film = Film.find(params[:id])
-    end
+  def find_item
+    @film = Film.find(params[:id])
+  end
 
 end

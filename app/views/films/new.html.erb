@@ -23,33 +23,34 @@
 
         <!-- FIXME make this work by ruby on rails stuff!-->
         <script>
-            $(document).ready(function()
-            { $('#search-form').on('input', function() {
-                var capitalized = $('#search-input').val();
-                if (capitalized.length === 0) return;
-                capitalized = capitalized[0].toUpperCase() + capitalized.substring(1);
-                $('#search-input').val(capitalized);
+            $(document).ready(function () {
+                $('#search-form').on('input', function () {
+                    var capitalized = $('#search-input').val();
+                    if (capitalized.length === 0) return;
+                    capitalized = capitalized[0].toUpperCase() + capitalized.substring(1);
+                    $('#search-input').val(capitalized);
                 })
             })
         </script>
 
       </div>
-      <br />
+      <br/>
 
       <div class="row">
         <% unless @add_result.nil? %>
             <% @add_result.each do |result| %>
                 <div class="col-md-3 col-sm-6 col-lg-3">
                   <%= form_tag('/films', method: :post) do %>
-                      <input type="hidden" value="<%= result['poster'] %>" name="poster" />
-                      <input type="hidden" value="<%= result['title'] %>" name="title" />
-                      <input type="hidden" value="<%= 'http://www.fs.to' + result['link'] %>" name="link" />
-                      <input type="hidden" value="<%= result['genres'] %>" name="genres" />
-                      <input type="hidden" value="<%= result['subsection'] %>" name="category" />
-                      <input type="hidden" value="<%= result['year'][0] %>" name="year" />
-                      <input type="hidden" value="<%= result['country'][0] %>" name="country" />
+                      <input type="hidden" value="<%= result['poster'] %>" name="poster"/>
+                      <input type="hidden" value="<%= result['title'] %>" name="title"/>
+                      <input type="hidden" value="<%= 'http://www.fs.to' + result['link'] %>" name="link"/>
+                      <input type="hidden" value="<%= result['genres'] %>" name="genres"/>
+                      <input type="hidden" value="<%= result['subsection'] %>" name="category"/>
+                      <input type="hidden" value="<%= result['year'][0] %>" name="year"/>
+                      <input type="hidden" value="<%= result['country'][0] %>" name="country"/>
 
                       <a class="thumbnail"> <img src="<%= result['poster'] %>" alt="poster"/> </a>
+
                       <p class="text-center">
                         Name: <%= link_to result['title'], 'http://www.fs.to' + result['link'] %> <br/>
                         Genres: <%= result['genres'] %> <br/>
@@ -57,7 +58,7 @@
                         Year: <%= result['year'][0] %> <br/>
                         Country: <%= result['country'][0] %> <br/>
 
-                        <button type='submit' class="btn btn-success"> Add me! </button>
+                        <button type='submit' class="btn btn-success"> Add me!</button>
                       </p>
                   <% end %>
                 </div>
