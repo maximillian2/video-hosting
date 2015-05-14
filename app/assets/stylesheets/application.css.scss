@@ -2,6 +2,8 @@
 @import "bootstrap";
 @import "font-awesome";
 
+// TODO REFACTOR ME!!11
+
 a {
   color: #ffffff;
 }
@@ -25,6 +27,7 @@ body {
     color: #43AEA8;
   }
 }
+
 .user {
   position: relative;
   top: 5px;
@@ -43,7 +46,7 @@ body {
   height: 270px;
   padding: 0;
   border: none;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 .nice-height {
@@ -53,7 +56,7 @@ body {
 .poster-actions {
   position: absolute;
   top: 220px;
-  left: 0px;
+  left: 0;
   width: 185px;
   height: 50px;
   //background-color: #000;
@@ -66,38 +69,89 @@ body {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
+
+  &:active {
+    color: #000;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
-.poster-actions-inner button {
+.poster-actions-inner a {
   width: 34px;
   height: 34px;
-  border: 2px solid #fff;
   border-radius: 4px;
-  color: #fff;
-  background: none;
+  border-width: 2px;
+  border-style: solid;
+  color: #000;
   margin-left: 5px;
   margin-right: 5px;
   display: inline-block;
 }
 
-.poster-actions-inner button:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-.poster-actions-inner button:active {
-  background-color: #ccc;
-  color: #000;
-}
-
-.poster-actions-inner button:focus {
-  outline: none;
-  color: #fff;
-}
 .sidebar-menu li {
   list-style-type: none;
 }
 
-//.caps {
-//  text-transform: capitalize;
-//}
+.video-item-delete {
+  width: 30px;
+  height: 25px;
+  position: absolute;
+  background: transparent;
+  border: none !important;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 5px;
+  top: 0;
+  color: #fff;
+  left: 150px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  .fa {
+    position: relative;
+    top: 1px;
+    left: 1px;
+  }
+
+  &:hover {
+    background: #C83C3B;
+  }
+}
+
+.video-item-show {
+  background-color: #0C8346;
+  border-color: #8FD5A6;
+
+  .fa {
+    position: relative;
+    top: 4px;
+    left: 0;
+  }
+
+  &:hover {
+    background-color: #49A945;
+  }
+}
+
+.video-item-edit {
+  background-color: #E39935;
+  border-color: #E3C03B;
+
+  .fa {
+    position: relative;
+    top: 5px;
+    left: 1px;
+  }
+
+  &:hover {
+    background-color: #FFD046;
+  }
+}
+
+.round-pic {
+  border: none;
+  border-radius: 5px;
+  border-top-right-radius: 10px;
+}

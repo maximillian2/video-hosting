@@ -1,6 +1,19 @@
 <!-- sidebar menu-->
 <h3>Мой список</h3>
 <hr/>
+<h3>Категории</h3>
+
+<ul class="nav nav-pills nav-stacked" id="sidebar-category">
+  <%= link_to_in_li 'Фильмы', Film.category('Фильмы').count, '/films?category=Фильмы', id: 'films_link' %>
+  <%= link_to_in_li 'Сериалы', Film.category('Сериалы').count, '/films?category=Сериалы', id: 'series_link' %>
+  <%= link_to_in_li 'Мультфильмы', Film.category('Мультфильмы').count, '/films?category=Мультфильмы', id: 'cartoons_link' %>
+  <%= link_to_in_li 'Мультсериалы', Film.category('Мультсериалы').count, '/films?category=Мультсериалы', id: 'cartoon_series_link' %>
+  <%= link_to_in_li 'Телепередачи', Film.category('Телепередачи').count, '/films?category=Телепередачи', id: 'shows_link' %>
+  <%= link_to_in_li 'Концерты', Film.category('Концерты').count, '/films?category=Концерты', id: 'concerts_link' %>
+</ul>
+
+<hr/>
+
 <h3>Жанры</h3>
 
 <ul class="nav nav-pills nav-stacked" id="sidebar-menu">
@@ -22,18 +35,6 @@
 
 <hr/>
 
-<h3>Категории</h3>
-
-<ul class="nav nav-pills nav-stacked" id="sidebar-category">
-  <%= link_to_in_li 'Фильмы', Film.category('Фильмы').count, '/films?category=Фильмы', id: 'films_link' %>
-  <%= link_to_in_li 'Сериалы', Film.category('Сериалы').count, '/films?category=Сериалы', id: 'series_link' %>
-  <%= link_to_in_li 'Мультфильмы', Film.category('Мультфильмы').count, '/films?category=Мультфильмы', id: 'cartoons_link' %>
-  <%= link_to_in_li 'Мультсериалы', Film.category('Мультсериалы').count, '/films?category=Мультсериалы', id: 'cartoon_series_link' %>
-  <%= link_to_in_li 'Телепередачи', Film.category('Телепередачи').count, '/films?category=Телепередачи', id: 'shows_link' %>
-  <%= link_to_in_li 'Концерты', Film.category('Концерты').count, '/films?category=Концерты', id: 'concerts_link' %>
-</ul>
-
-<hr/>
 
 <h3>Тэги</h3>
 <p>Not realised yet.</p>
