@@ -1,38 +1,40 @@
-<%= render partial: 'shared/menu_bar' %>
+<%= render partial: 'partials/menu_bar' %>
 
 <div class="container">
   <div class="row">
 
     <div class="col-md-3">
-      <%= render partial: 'shared/side_menu' %>
+      <%= render partial: 'partials/side_menu' %>
     </div>
 
     <div class="col-md-9">
       <div class="row">
-        <% @films.each do |film| %>
+        <% @films.each_with_index do |film, index| %>
             <div class="col-md-4 col-sm-6 col-lg-3">
               <div class="text-center thumbnail">
                 <img src="<%= film.image %>" alt="poster" class="round-pic"/>
-                  <%= link_to fa_icon('remove', class: 'fa-fw'), film, method: :delete, class: 'video-item-delete' %>
+                <%= link_to fa_icon('remove', class: 'fa-fw'), film, method: :delete, class: 'video-item-delete' %>
 
                 <div class="poster-actions">
                   <div class="poster-actions-inner">
                     <%= link_to fa_icon('eye', class: 'fa-fw'), film, class: 'video-item-show' %>
-                    <%= link_to fa_icon('edit', class: 'fa-fw'), edit_film_path(film), class: 'video-item-edit' %>
+                    <%= link_to fa_icon('edit', class: 'fa-fw'), '', class: 'video-item-edit', 'data-toggle' => 'modal', 'data-target' => '#showModal' + index.to_s %>
                   </div>
                 </div>
               </div>
               <p class="text-center nice-height">
-                Name: <%= link_to film.title, film.link %> <br/>
-                Original name: <%= film.original_title %> <br/>
+                <%= link_to film.title, film.link %>
+                <!--Original name: <#%= film.original_title %> <br/>-->
                 <!--Genres: <#%= film.genres %> <br/>-->
-                Category: <%= film.category %> <br/>
-                Year: <%= film.year %> <br/>
-                Country: <%= film.country %> <br/>
-                Rating: <%= film.rating %> <br/> <br/>
+                <!--Category: <#%= film.category %> <br/>-->
+                <!--Year: <#%= film.year %> <br/>-->
+                <!--Country: <#%= film.country %> <br/>-->
+                <!--Rating: <#%= film.rating %> <br/> <br/>-->
               </p>
             </div>
+            <%= render partial: 'partials/modal', locals: { edit_film: film, edit_index: index } %>
         <% end %>
+
       </div>
     </div>
 

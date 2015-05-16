@@ -2,6 +2,7 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 // TODO REFACTOR ME!!11
 
 a {
@@ -50,7 +51,7 @@ body {
 }
 
 .nice-height {
-  height: 200px;
+  height: 100px;
 }
 
 .poster-actions {
@@ -74,6 +75,7 @@ body {
     color: #000;
   }
 
+  // not working on edit button
   &:focus {
     outline: none;
   }
@@ -147,6 +149,10 @@ body {
 
   &:hover {
     background-color: #FFD046;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

@@ -1,21 +1,27 @@
-<%= render partial: 'shared/menu_bar' %>
+<!--<#%= render partial: 'partials/menu_bar' %>-->
 
-<div class="container">
-  <div class="row">
+<!--<div class="container">-->
+  <!--<div class="row">-->
 
-    <div class="col-md-3">
-      <%= render partial: 'shared/side_menu' %>
-    </div>
-
-    <div class="col-md-9">
-        <div class="center-block">
-          <h1>Edit film#<%= @film.id %></h1>
+    <!--<div class="col-md-3">-->
+    <!--<#%= render partial: 'partials/side_menu' %>-->
+    <!--</div>-->
+    <!--<div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+      <!--<div class="modal-dialog">-->
+        <!--<div class="modal-content">-->
+          <!--<div class="col-md-6">-->
+          <!--<div class="center-block">-->
+          <h1><%= @film.title %></h1>
           <%= form_for @film do |f| %>
-            <%= render partial: 'shared/form', locals: { f: f } %>
-            <%= f.submit 'Update film', class: 'btn btn-success'%>
+              <%= render partial: 'partials/form', locals: { f: f } %>
+              <%= f.submit 'Update film', class: 'btn btn-success' %>
           <% end %>
-        </div>
-    </div>
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  </div>
-</div>
+
+<!--</div>-->
+<!--</div>-->

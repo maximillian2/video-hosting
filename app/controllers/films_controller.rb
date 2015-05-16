@@ -6,6 +6,7 @@ class FilmsController < ApplicationController
     @films = Film.where(nil)
     @films = @films.where('genres LIKE ?', "%#{params[:genre]}%") if params[:genre]
     @films = @films.category(params[:category]) if params[:category]
+    # @films = @films.includes(:film)
   end
 
   def show
@@ -31,7 +32,7 @@ class FilmsController < ApplicationController
         doc = Nokogiri::HTML(open("#{ 'http://www.fs.to' + i['link'] }"))
         itemprop_image = doc.xpath("//img[@itemprop='image']")
         # Get the link of original image poster through XPath
-        i['poster'] = itemprop_image.attr('src').value
+        i['poster'] = itemprop_image.attr('src').value unless itemprop_image.nil?
       end
     else
       render 'new'
