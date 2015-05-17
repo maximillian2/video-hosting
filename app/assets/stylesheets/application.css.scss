@@ -5,22 +5,18 @@
 
 // TODO REFACTOR ME!!11
 
-a {
-  color: #ffffff;
+a, p, h3 {
+  color: #C81E32;
 }
 
 body {
-  background-color: teal;
+  background-color: #EADDB6;
   padding-top: 70px;
 }
 
 .brand-class {
   position: relative;
   top: -6px;
-}
-
-.navbar-bottom {
-  background-color: #43AEA8;
 }
 
 .icon-link .fa {
@@ -123,8 +119,11 @@ body {
 }
 
 .video-item-show {
-  background-color: #0C8346;
-  border-color: #8FD5A6;
+  //background-color: #1ACF82;
+  background-color: #1E9E5B ;
+  //border-color: #49A945;
+  border-color: #1ACF82;
+  //border-color: #8FD5A6;
 
   .fa {
     position: relative;
@@ -133,13 +132,14 @@ body {
   }
 
   &:hover {
-    background-color: #49A945;
+    background-color: #1ACF82;
   }
 }
 
 .video-item-edit {
   background-color: #E39935;
-  border-color: #E3C03B;
+  border-color: #FFD046;
+  //border-color: #E3C03B;
 
   .fa {
     position: relative;
@@ -160,4 +160,12 @@ body {
   border: none;
   border-radius: 5px;
   border-top-right-radius: 10px;
+}
+
+.top-menu {
+  background-color: #EED3A0;
+}
+
+.modal-text {
+  color: #000;
 }

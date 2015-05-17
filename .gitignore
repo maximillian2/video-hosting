@@ -18,6 +18,4 @@
 
 # IDEA folder
 .idea/
-public/uploads
-tmp
-logs
+/public/uploads

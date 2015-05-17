@@ -22,13 +22,20 @@ class FilmsController < ApplicationController
     @film = Film.new
 
     if params[:add_field]
+      puts 'add_field = ' + params[:add_field]
       # Strip whitespaces for '+' to build correct GET request
       add_field = params[:add_field].tr(' ', '+')
+      puts 'add_field after strip ' + add_field
       url = "http://fs.to/search.aspx?f=quick_search&search=#{add_field}&section=video"
+      puts 'url = ' + url
       request = Net::HTTP.get(URI.parse(URI.encode(url)))
+      puts 'request =' + request
       # Parse JSON response and delete records that don't belong to 'video' section
       @add_result = ActiveSupport::JSON.decode(request).delete_if { |hash| hash['section'] != 'video' }
+      puts 'add_result  = ' + @add_result.to_s
+      # if subsection is tv shows, use
       @add_result.map do |i|
+        puts 'im in map method'
         doc = Nokogiri::HTML(open("#{ 'http://www.fs.to' + i['link'] }"))
         itemprop_image = doc.xpath("//img[@itemprop='image']")
         # Get the link of original image poster through XPath
@@ -50,14 +57,12 @@ class FilmsController < ApplicationController
     @film.year = params['year']
     @film.country = params['country']
 
-    p @film
-
     doc = Nokogiri::HTML(open("#{ @film.link }"))
 
     original_title = doc.xpath("//div[@itemprop='alternativeHeadline']").text
     if original_title.empty?
       @film.original_title = '–'
-      @film.rating = 0
+      # @film.rating = 0
     else
       @film.original_title = original_title
       ## TODO вопрос аниме открыт
@@ -66,6 +71,7 @@ class FilmsController < ApplicationController
       # @film.rating = rating_value.rating
       # @film.rating = rating_value.nil? ? 0 : rating_value.rating
     end
+    p "original title #{@film.original_title}"
 
     if @film.save
       redirect_to films_path

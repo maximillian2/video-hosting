@@ -11,12 +11,12 @@
       <div class="row">
 
         <%= form_tag('/search', method: 'get') do %>
-            <h3 align="center">Ultimate search: </h3>
+            <h3 align="center">Что ищем? </h3>
 
             <div class="input-group">
-              <%= text_field_tag('search_field', nil, class: 'form-control', type: 'text', placeholder: 'Type name of film...', autofocus: true) %>
+              <%= text_field_tag('search_field', nil, class: 'form-control', type: 'text', placeholder: 'Введите название...', autofocus: true) %>
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-default">Search!</button>
+                <button type="submit" class="btn btn-default">Поиск!</button>
               </span>
             </div>
         <% end %>
@@ -26,27 +26,28 @@
 
       <div class="row">
         <% unless @search_result.nil? %>
-            <h3 align="center">Found <%= @search_result.count %> record(s).</h3>
-            <% @search_result.each do |item| %>
+            <h3 align="center">Найдено <%= @search_result.count %> запись(ей).</h3>
+            <% @search_result.each_with_index do |item, index| %>
                 <div class="col-md-3 col-sm-6">
-                  <a class="thumbnail">
-                    <img src="<%= item.image %>" alt="poster"/>
-                  </a>
+                  <div class="col-md-4 col-sm-6 col-lg-3">
+                    <div class="text-center thumbnail">
 
-                  <p class="text-center">
-                    Name: <%= link_to item.title, item.link %> <br/>
-                    Original name: <%= item.original_title %> <br/>
+                      <img src="<%= item.image %>" alt="poster" class="round-pic"/>
+                      <%= link_to fa_icon('remove', class: 'fa-fw'), item, method: :delete, class: 'video-item-delete' %>
 
-                    <!-- FIXME is this worth it? -->
-                    Genres: <%= item.genres.split(', ').first %> <br/>
-                    Category: <%= item.category %> <br/>
-                    Year: <%= item.year %> <br/>
-                    Country: <%= item.country %> <br/>
-                    Rating: <%= item.rating %> <br/> <br/>
-                    <%= link_to 'Edit', edit_film_path(item), class: 'btn btn-info' %>
-                    <%= link_to 'Delete', item, class: 'btn btn-danger', method: :delete, data: { confirm: 'Confirm deleting, please.' } %>
-                    <br/>
-                  </p>
+                      <div class="poster-actions">
+                        <div class="poster-actions-inner">
+                          <%= link_to fa_icon('eye', class: 'fa-fw'), item.link, class: 'video-item-show' %>
+                          <%= link_to fa_icon('edit', class: 'fa-fw'), '', class: 'video-item-edit', 'data-toggle' => 'modal', 'data-target' => '#showModal' + index.to_s %>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- TODO center this p-->
+                    <p class="text-center nice-height"> <%= item.title %> </p>
+                  </div>
+                  <%= render partial: 'partials/modal', locals: { edit_film: item, edit_index: index } %>
                 </div>
             <% end %>
         <% end %>
