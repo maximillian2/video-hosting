@@ -16,8 +16,8 @@ class FilmsController < ApplicationController
   end
 
   def new
-    require 'net/http'
-    require 'open-uri'
+    p require 'net/http'
+    p require 'open-uri'
 
     @film = Film.new
 
