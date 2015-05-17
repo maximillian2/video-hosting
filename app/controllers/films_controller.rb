@@ -29,7 +29,7 @@ class FilmsController < ApplicationController
       url = "http://fs.to/search.aspx?f=quick_search&search=#{add_field}&section=video"
       puts 'url = ' + url
       request = Net::HTTP.get(URI.parse(URI.encode(url)))
-      puts 'request =' + request
+      puts 'request =' + request.inspect.to_s
       # Parse JSON response and delete records that don't belong to 'video' section
       @add_result = ActiveSupport::JSON.decode(request).delete_if { |hash| hash['section'] != 'video' }
       puts 'add_result  = ' + @add_result.to_s
