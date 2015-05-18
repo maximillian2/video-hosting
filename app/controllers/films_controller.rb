@@ -23,7 +23,7 @@ class FilmsController < ApplicationController
       # Strip whitespaces for '+' to build correct GET request
       add_field = params[:add_field].tr(' ', '+')
       puts 'add_field after strip ' + add_field
-      url = "http://fs.to/search.aspx?f=quick_search&search=#{add_field}&section=video"
+      url = "http://brb.to/search.aspx?f=quick_search&search=#{add_field}&section=video"
       puts 'url = ' + url
       encoded_url = URI.encode(url)
       puts 'encoded_url = ' + encoded_url
