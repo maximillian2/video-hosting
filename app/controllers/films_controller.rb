@@ -16,9 +16,6 @@ class FilmsController < ApplicationController
   end
 
   def new
-    p require 'net/http'
-    p require 'open-uri'
-
     @film = Film.new
 
     if params[:add_field]
@@ -34,6 +31,10 @@ class FilmsController < ApplicationController
       puts 'parsed_url = ' + parsed_url.to_s
       client = HTTPClient.new
       request = client.get(encoded_url)
+      p request.status
+      p request.contenttype
+      p request.header
+      puts request.body
       # request = Net::HTTP.get(parsed_url)
       # puts 'request =' + request.inspect.to_s
       # Parse JSON response and delete records that don't belong to 'video' section
