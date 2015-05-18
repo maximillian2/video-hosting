@@ -26,6 +26,9 @@ gem 'nokogiri', :require => 'nokogiri'
 # Awesome gem for IMDB support
 gem 'filmbuff'
 
+# HTTP get
+gem 'httpclient'
+
 # Simple notification system
 # gem 'bootstrap_notify', '~>0.0.5'
 

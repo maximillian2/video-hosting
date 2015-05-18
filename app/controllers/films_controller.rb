@@ -32,15 +32,18 @@ class FilmsController < ApplicationController
       puts 'encoded_url = ' + encoded_url
       parsed_url = URI.parse(encoded_url)
       puts 'parsed_url = ' + parsed_url.to_s
-      request = Net::HTTP.get(parsed_url)
-      puts 'request =' + request.inspect.to_s
+      client = HTTPClient.new
+      request = client.get(parsed_url)
+      # request = Net::HTTP.get(parsed_url)
+      # puts 'request =' + request.inspect.to_s
       # Parse JSON response and delete records that don't belong to 'video' section
-      @add_result = ActiveSupport::JSON.decode(request).delete_if { |hash| hash['section'] != 'video' }
+      p request.body
+      @add_result = ActiveSupport::JSON.decode(request.body).delete_if { |hash| hash['section'] != 'video' }
       puts 'add_result  = ' + @add_result.to_s
       # if subsection is tv shows, use
       @add_result.map do |i|
         puts 'im in map method'
-        doc = Nokogiri::HTML(open("#{ 'http://www.fs.to' + i['link'] }"))
+        doc = Nokogiri::HTML(open("#{ 'http://fs.to' + i['link'] }"))
         itemprop_image = doc.xpath("//img[@itemprop='image']")
         # Get the link of original image poster through XPath
         i['poster'] = itemprop_image.attr('src').value unless itemprop_image.nil?
