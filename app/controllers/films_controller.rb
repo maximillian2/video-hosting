@@ -33,7 +33,7 @@ class FilmsController < ApplicationController
       parsed_url = URI.parse(encoded_url)
       puts 'parsed_url = ' + parsed_url.to_s
       client = HTTPClient.new
-      request = client.get(parsed_url)
+      request = client.get(encoded_url)
       # request = Net::HTTP.get(parsed_url)
       # puts 'request =' + request.inspect.to_s
       # Parse JSON response and delete records that don't belong to 'video' section
