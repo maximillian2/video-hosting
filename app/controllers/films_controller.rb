@@ -1,5 +1,6 @@
 class FilmsController < ApplicationController
 
+  before_action :authenticate_user!
   before_filter :find_item, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,28 +20,26 @@ class FilmsController < ApplicationController
     @film = Film.new
 
     if params[:add_field]
-      puts 'add_field = ' + params[:add_field]
       # Strip whitespaces for '+' to build correct GET request
       add_field = params[:add_field].tr(' ', '+')
-      puts 'add_field after strip ' + add_field
-      url = "http://brb.to/search.aspx?f=quick_search&search=#{add_field}&section=video"
-      puts 'url = ' + url
+      url = "http://#{Rails.env.production? ? 'brb' : 'fs'}.to/search.aspx?f=quick_search&search=#{add_field}&section=video"
+      # puts 'url = ' + url
       encoded_url = URI.encode(url)
-      puts 'encoded_url = ' + encoded_url
-      parsed_url = URI.parse(encoded_url)
-      puts 'parsed_url = ' + parsed_url.to_s
+      # puts 'encoded_url = ' + encoded_url
+      # parsed_url = URI.parse(encoded_url)
+      # puts 'parsed_url = ' + parsed_url.to_s
       client = HTTPClient.new
       request = client.get(encoded_url)
-      p request.status
-      p request.contenttype
-      p request.header
-      puts request.body
+      # p request.status
+      # p request.contenttype
+      # p request.header
+      # puts request.body
       # request = Net::HTTP.get(parsed_url)
       # puts 'request =' + request.inspect.to_s
       # Parse JSON response and delete records that don't belong to 'video' section
-      p request.body
+      # p request.body
       @add_result = ActiveSupport::JSON.decode(request.body).delete_if { |hash| hash['section'] != 'video' }
-      puts 'add_result  = ' + @add_result.to_s
+      # puts 'add_result  = ' + @add_result.to_s
       # if subsection is tv shows, use
       @add_result.map do |i|
         puts 'im in map method'
@@ -55,15 +54,15 @@ class FilmsController < ApplicationController
   end
 
   def create
-    @film = Film.new
-
-    @film.image = params['poster']
-    @film.title = params['title']
-    @film.link = params['link']
-    @film.genres = params['genres']
-    @film.category = params['category']
-    @film.year = params['year']
-    @film.country = params['country']
+    @film = Film.new.tap do |f|
+      f.image = params['poster']
+      f.title = params['title']
+      f.link = params['link']
+      f.genres = params['genres']
+      f.category = params['category']
+      f.year = params['year']
+      f.country = params['country']
+    end
 
     doc = Nokogiri::HTML(open("#{ @film.link }"))
 
@@ -79,7 +78,6 @@ class FilmsController < ApplicationController
       # @film.rating = rating_value.rating
       # @film.rating = rating_value.nil? ? 0 : rating_value.rating
     end
-    p "original title #{@film.original_title}"
 
     if @film.save
       redirect_to films_path
@@ -101,9 +99,7 @@ class FilmsController < ApplicationController
 
   def search
     if params[:search_field]
-      # TODO make search input text capitalized
       search_result = params[:search_field]
-      p search_result.capitalize
       @search_result = Film.where('title LIKE ?', "%#{search_result}%")
     else
       render 'search'

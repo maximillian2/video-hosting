@@ -11,7 +11,8 @@
       <ul class="nav navbar-nav navbar-right icon-link">
         <li> <%= link_to fa_icon('plus 2x', class: 'fa-fw'), new_film_path %> </li>
         <li> <%= link_to fa_icon('search 2x', class: 'fa-fw'), '/search' %> </li>
-        <li> <%= link_to 'USER_NAME', '#', class: 'user' %> </li>
+        <li> <%= link_to current_user.email, edit_user_registration_path, class: 'user' %> </li>
+        <li> <%= link_to fa_icon('sign-out 2x', class: 'fa-fw'), destroy_user_session_path, :method => :delete %> </li>
       </ul>
     </div>
 
