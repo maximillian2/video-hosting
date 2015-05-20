@@ -10,16 +10,27 @@
     <div class="col-md-9">
       <div class="row">
 
-        <%= form_tag('/search', method: 'get') do %>
+        <%= form_tag('/search', id: 'search-form', method: 'get') do %>
             <h3 align="center">Что ищем? </h3>
 
             <div class="input-group">
-              <%= text_field_tag('search_field', nil, class: 'form-control', type: 'text', placeholder: 'Введите название...', autofocus: true) %>
+              <%= text_field_tag('search_field', nil, class: 'form-control', id: 'search-input', type: 'text', placeholder: 'Введите название...', autofocus: true) %>
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default">Поиск!</button>
               </span>
             </div>
         <% end %>
+        <!-- FIXME make this work by ruby on rails stuff!-->
+        <script>
+            $(document).ready(function () {
+                $('#search-form').on('input', function () {
+                    var capitalized = $('#search-input').val();
+                    if (capitalized.length === 0) return;
+                    capitalized = capitalized[0].toUpperCase() + capitalized.substring(1);
+                    $('#search-input').val(capitalized);
+                })
+            })
+        </script>
 
       </div>
       <br/>

@@ -25,9 +25,11 @@ gem 'font-awesome-rails'
 gem 'nokogiri', :require => 'nokogiri'
 # Awesome gem for IMDB support
 gem 'filmbuff'
-
 # HTTP get
 gem 'httpclient'
+# Authentification gem
+gem 'devise'
+
 
 # Simple notification system
 # gem 'bootstrap_notify', '~>0.0.5'
@@ -48,7 +50,7 @@ end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  # gem 'byebug'
 
   gem 'haml-rails', '>= 0.3.4'
   # Access an IRB console on exception pages or by using <%= console %> in views

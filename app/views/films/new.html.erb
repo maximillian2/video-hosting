@@ -9,11 +9,11 @@
 
     <div class="col-md-9">
       <div class="row">
-        <%= form_tag('/films/new', id: 'search-form', method: 'get') do %>
+        <%= form_tag('/films/new', id: 'new-form', method: 'get') do %>
             <h3 align="center">Что добавляем? </h3>
 
             <div class="input-group">
-              <%= text_field_tag('add_field', nil, id: 'search-input', class: 'form-control', type: 'text', placeholder: 'Впишите название...', autofocus: true) %>
+              <%= text_field_tag('add_field', nil, id: 'new-input', class: 'form-control', type: 'text', placeholder: 'Впишите название...', autofocus: true) %>
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default">Поиск!</button>
               </span>
@@ -23,11 +23,11 @@
         <!-- FIXME make this work by ruby on rails stuff!-->
         <script>
             $(document).ready(function () {
-                $('#search-form').on('input', function () {
-                    var capitalized = $('#search-input').val();
+                $('#new-form').on('input', function () {
+                    var capitalized = $('#new-input').val();
                     if (capitalized.length === 0) return;
                     capitalized = capitalized[0].toUpperCase() + capitalized.substring(1);
-                    $('#search-input').val(capitalized);
+                    $('#new-input').val(capitalized);
                 })
             })
         </script>
