@@ -4,10 +4,11 @@ class FilmsController < ApplicationController
   before_filter :find_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @films = Film.where(nil)
-    @films = @films.where('genres LIKE ?', "%#{params[:genre]}%") if params[:genre]
-    @films = @films.category(params[:category]) if params[:category]
-    # @films = @films.includes(:film)
+    @user = current_user
+    @films = Film.joins(:users).where(users: { id: current_user.id })
+    @films = @films.genres(current_user.id, params[:genre]) if params[:genre]
+    @films = @films.category(current_user.id, params[:category]) if params[:category]
+    p @films
   end
 
   def show
@@ -54,6 +55,8 @@ class FilmsController < ApplicationController
   end
 
   def create
+    @user = current_user
+
     @film = Film.new.tap do |f|
       f.image = params['poster']
       f.title = params['title']
@@ -80,6 +83,7 @@ class FilmsController < ApplicationController
     end
 
     if @film.save
+      @user.films << @film
       redirect_to films_path
     else
       render 'new'
@@ -99,8 +103,17 @@ class FilmsController < ApplicationController
 
   def search
     if params[:search_field]
+      p 'current user id = ' + current_user.id.to_s
       search_result = params[:search_field]
-      @search_result = Film.where('title LIKE ?', "%#{search_result}%")
+      p search_result
+      p "#{current_user.id}".to_i
+      user = current_user.id
+      @search_result = Film.joins(:users).where { (users.id == user ) & (title.matches "%#{search_result}%") }
+
+      p @search_result
+      # ('users.id' => current_user.id, 'title' => "#{search_result}")
+          # users: { id: current_user.id }, :title.like => "%#{search_result}%")
+          # 'title LIKE ?', "%#{search_result}%")
     else
       render 'search'
     end

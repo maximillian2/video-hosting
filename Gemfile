@@ -29,7 +29,8 @@ gem 'filmbuff'
 gem 'httpclient'
 # Authentification gem
 gem 'devise'
-
+# I want that sexy 'like' condition
+gem 'squeel'
 
 # Simple notification system
 # gem 'bootstrap_notify', '~>0.0.5'
