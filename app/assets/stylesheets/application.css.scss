@@ -1,19 +1,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "jquery.ui.core";
+// you always want that stylesheet
+@import "jquery.ui.accordion";
 
 a, p, h3 {
-  color: #C81E32;
+  color: #000;
 }
 
 body {
-  background-color: #EADDB6;
+  background-color: #ebebeb;
   padding-top: 70px;
+}
+
+.nav-pills > li.active > a {
+  background-color: #ef5350;
+
+  &:hover {
+    background-color: #FF5654;
+  }
+}
+
+.nav-pills > li > a {
+  &:hover {
+    color: #fff;
+    background-color: #ef5350;
+  }
 }
 
 .brand-class {
   position: relative;
-  top: -6px;
+  top: -17px;
 }
 
 .icon-link .fa {
@@ -117,7 +135,7 @@ body {
 
 .video-item-show {
   //background-color: #1ACF82;
-  background-color: #1E9E5B ;
+  background-color: #1E9E5B;
   //border-color: #49A945;
   border-color: #1ACF82;
   //border-color: #8FD5A6;
@@ -160,9 +178,24 @@ body {
 }
 
 .top-menu {
-  background-color: #EED3A0;
+  background-color: #ebebeb;
 }
 
 .modal-text {
   color: #000;
+}
+
+.navbar-default {
+  border-color: #ADADAD;
+}
+
+// jQuery UI Accordion Menu Styles yay
+
+#accordion {
+  font-size: 12pt;
+  width: 270px;
+}
+
+.ui-accordion-header {
+  color: #ef5350;
 }

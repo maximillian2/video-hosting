@@ -36,14 +36,21 @@
       <br/>
 
       <div class="row">
-        <% unless @add_result.nil? %>
+        <% if @add_result.nil? %>
+            <!--<p>first time</p>-->
+        <% elsif @add_result.empty? %>
+            <div class="text-center">
+              <h1>No Results To Display</h1>
+              <h4>Sorry, no items matched your search criteria.</h4>
+            </div>
+        <% else %>
             <% @add_result.each do |result| %>
                 <div class="col-md-3 col-sm-6 col-lg-3">
                   <%= form_tag('/films', method: :post) do %>
                       <input type="hidden" value="<%= result['poster'] %>" name="poster"/>
                       <input type="hidden" value="<%= result['title'] %>" name="title"/>
                       <input type="hidden" value="<%= 'http://www.fs.to' + result['link'] %>" name="link"/>
-                      <input type="hidden" value="<%= result['genres'].class == Array ? result['genres'].join(', ') : result['genres'] = '–'  %>" name="genres"/>
+                      <input type="hidden" value="<%= result['genres'].class == Array ? result['genres'].join(', ') : result['genres'] = '–' %>" name="genres"/>
                       <input type="hidden" value="<%= result['subsection'] %>" name="category"/>
                       <input type="hidden" value="<%= result['year'][0] %>" name="year"/>
                       <input type="hidden" value="<%= result['country'][0] %>" name="country"/>
@@ -52,9 +59,14 @@
 
                       <!--<p class="text-center">-->
                       <p> <%= link_to result['title'], 'http://www.fs.to' + result['link'] %> </p>
+
                       <p> Категория: <%= result['subsection'] %> </p>
-                      <p> Жанры: <%= result['genres'].class == Array ? result['genres'].join(', ') : result['genres'] = '–' %> </p>
+
+                      <p>
+                        Жанры: <%= result['genres'].class == Array ? result['genres'].join(', ') : result['genres'] = '–' %> </p>
+
                       <p> Год: <%= result['year'][0] %> </p>
+
                       <p> Страна: <%= result['country'][0] %> </p>
 
                       <button type='submit' class="btn btn-success"> Добавить</button>

@@ -1,42 +1,55 @@
+<script>
+    $(function () {
+        $("#accordion").accordion({
+            active: false
+        });
+    });
+</script>
+
 <!-- sidebar menu-->
-<h3>Мой список</h3>
-<hr/>
-<h3>Категории</h3>
-
-<ul class="nav nav-pills nav-stacked" id="sidebar-category">
-  <%= link_to_in_li 'Фильмы', Film.category(current_user.id, 'Фильмы').count, '/films?category=Фильмы', id: 'films_link' %>
-  <%= link_to_in_li 'Сериалы', Film.category(current_user.id, 'Сериалы').count, '/films?category=Сериалы', id: 'series_link' %>
-  <%= link_to_in_li 'Мультфильмы', Film.category(current_user.id, 'Мультфильмы').count, '/films?category=Мультфильмы', id: 'cartoons_link' %>
-  <%= link_to_in_li 'Мультсериалы', Film.category(current_user.id, 'Мультсериалы').count, '/films?category=Мультсериалы', id: 'cartoon_series_link' %>
-  <%= link_to_in_li 'Телепередачи', Film.category(current_user.id, 'Телепередачи').count, '/films?category=Телепередачи', id: 'shows_link' %>
-  <%= link_to_in_li 'Концерты', Film.category(current_user.id, 'Концерты').count, '/films?category=Концерты', id: 'concerts_link' %>
-</ul>
+<h3><%= link_to content_tag(:span, "#{Film.user_films(current_user.id).count.to_s}", class: 'badge pull-right') + 'Мой список', root_path %> </h3>
 
 <hr/>
 
-<h3>Жанры</h3>
+<div id="accordion">
+  <h3>Категории</h3>
 
-<ul class="nav nav-pills nav-stacked" id="sidebar-menu">
-  <%= link_to_in_li 'Все', Film.user_films(current_user.id).count, root_path, id: 'all_link' %>
-  <%= link_to_in_li 'Аниме', Film.genres(current_user.id, '%аниме%').count, '/films?genre=аниме', id: 'anime_link' %>
-  <%= link_to_in_li 'Боевик', Film.genres(current_user.id, '%боевик%').count, '/films?genre=боевик', id: "action_movie_link" %>
-  <%= link_to_in_li 'Детектив', Film.genres(current_user.id, '%детектив%').count, '/films?genre=детектив', id: "detective_link" %>
-  <%= link_to_in_li 'Документальный', Film.genres(current_user.id, '%документальный%').count, '/films?genre=документальный', id: "documentary_link" %>
-  <%= link_to_in_li 'Драма', Film.genres(current_user.id, '%драма%').count, '/films?genre=драма', id: "drama_link" %>
-  <%= link_to_in_li 'Комедия', Film.genres(current_user.id, '%комедия%').count, '/films?genre=комедия', id: "comedy_link" %>
-  <%= link_to_in_li 'Приключения', Film.genres(current_user.id, '%приключения%').count, '/films?genre=приключения', id: "adventure_link" %>
-  <%= link_to_in_li 'Семейный', Film.genres(current_user.id, '%семейный%').count, '/films?genre=семейный', id: "family_link" %>
-  <%= link_to_in_li 'Триллер', Film.genres(current_user.id, '%триллер%').count, '/films?genre=триллер', id: "thriller_link" %>
-  <%= link_to_in_li 'Ужасы', Film.genres(current_user.id, '%ужасы%').count, '/films?genre=ужасы', id: "horror_link" %>
-  <%= link_to_in_li 'Фантастика', Film.genres(current_user.id, '%фантастика%').count, '/films?genre=фантастика', id: "fiction_link" %>
-  <%= link_to_in_li 'Фэнтези', Film.genres(current_user.id, '%фэнтези%').count, '/films?genre=фэнтези', id: "fantasy_link" %>
-  <%= link_to_in_li 'Эротика', Film.genres(current_user.id, '%эротика%').count, '/films?genre=эротика', id: "erotica_link" %>
-</ul>
+  <div>
+    <ul class="nav nav-pills nav-stacked" id="sidebar-category">
+      <%= link_to_in_li 'Фильмы', Film.category(current_user.id, 'Фильмы').count, '/films?category=Фильмы', id: 'films_link' %>
+      <%= link_to_in_li 'Сериалы', Film.category(current_user.id, 'Сериалы').count, '/films?category=Сериалы', id: 'series_link' %>
+      <%= link_to_in_li 'Мультфильмы', Film.category(current_user.id, 'Мультфильмы').count, '/films?category=Мультфильмы', id: 'cartoons_link' %>
+      <%= link_to_in_li 'Мультсериалы', Film.category(current_user.id, 'Мультсериалы').count, '/films?category=Мультсериалы', id: 'cartoon_series_link' %>
+      <%= link_to_in_li 'Телепередачи', Film.category(current_user.id, 'Телепередачи').count, '/films?category=Телепередачи', id: 'shows_link' %>
+      <%= link_to_in_li 'Концерты', Film.category(current_user.id, 'Концерты').count, '/films?category=Концерты', id: 'concerts_link' %>
+    </ul>
+  </div>
 
-<hr/>
+  <h3>Жанры</h3>
 
+  <div>
+    <ul class="nav nav-pills nav-stacked" id="sidebar-menu">
+      <%= link_to_in_li 'Аниме', Film.genres(current_user.id, '%аниме%').count, '/films?genre=аниме', id: 'anime_link' %>
+      <%= link_to_in_li 'Боевик', Film.genres(current_user.id, '%боевик%').count, '/films?genre=боевик', id: "action_movie_link" %>
+      <%= link_to_in_li 'Детектив', Film.genres(current_user.id, '%детектив%').count, '/films?genre=детектив', id: "detective_link" %>
+      <%= link_to_in_li 'Документальный', Film.genres(current_user.id, '%документальный%').count, '/films?genre=документальный', id: "documentary_link" %>
+      <%= link_to_in_li 'Драма', Film.genres(current_user.id, '%драма%').count, '/films?genre=драма', id: "drama_link" %>
+      <%= link_to_in_li 'Комедия', Film.genres(current_user.id, '%комедия%').count, '/films?genre=комедия', id: "comedy_link" %>
+      <%= link_to_in_li 'Приключения', Film.genres(current_user.id, '%приключения%').count, '/films?genre=приключения', id: "adventure_link" %>
+      <%= link_to_in_li 'Семейный', Film.genres(current_user.id, '%семейный%').count, '/films?genre=семейный', id: "family_link" %>
+      <%= link_to_in_li 'Триллер', Film.genres(current_user.id, '%триллер%').count, '/films?genre=триллер', id: "thriller_link" %>
+      <%= link_to_in_li 'Ужасы', Film.genres(current_user.id, '%ужасы%').count, '/films?genre=ужасы', id: "horror_link" %>
+      <%= link_to_in_li 'Фантастика', Film.genres(current_user.id, '%фантастика%').count, '/films?genre=фантастика', id: "fiction_link" %>
+      <%= link_to_in_li 'Фэнтези', Film.genres(current_user.id, '%фэнтези%').count, '/films?genre=фэнтези', id: "fantasy_link" %>
+      <%= link_to_in_li 'Эротика', Film.genres(current_user.id, '%эротика%').count, '/films?genre=эротика', id: "erotica_link" %>
+    </ul>
+  </div>
 
-<h3>Тэги</h3>
-<p>Not realised yet.</p>
+  <h3>Тэги</h3>
 
+  <div>
+    <p>Not realised yet.</p>
+  </div>
+
+</div> <!-- accordion -->
 <!-- sidebar menu end-->
