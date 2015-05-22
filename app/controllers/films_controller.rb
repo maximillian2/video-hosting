@@ -92,10 +92,12 @@ class FilmsController < ApplicationController
   end
 
   def search
-    if params[:search_field]
+    if params[:search_field] && !params[:search_field].empty?
       search_result = params[:search_field]
       user = current_user.id # => squeel workimg properly after this
       @search_result = Film.joins(:users).where { (users.id == user ) & (title.matches "%#{search_result}%") }
+    elsif params[:search_field] && params[:search_field].empty?
+      @search_result = ''
     else
       render 'search'
     end

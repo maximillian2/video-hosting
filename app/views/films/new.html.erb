@@ -13,7 +13,7 @@
             <h3 align="center">Что добавляем? </h3>
 
             <div class="input-group">
-              <%= text_field_tag('add_field', nil, id: 'new-input', class: 'form-control', type: 'text', placeholder: 'Впишите название...', autofocus: true) %>
+              <%= text_field_tag('add_field', nil, id: 'new-input', class: 'form-control', type: 'text', maxlength: 50, placeholder: 'Впишите название...', autofocus: true) %>
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default">Поиск!</button>
               </span>
@@ -39,6 +39,7 @@
         <% if @add_result.nil? %>
             <!--<p>first time</p>-->
         <% elsif @add_result.empty? %>
+            <!-- TODO put this into partial or helper-->
             <div class="text-center">
               <h1>No Results To Display</h1>
               <h4>Sorry, no items matched your search criteria.</h4>
