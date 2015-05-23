@@ -10,7 +10,7 @@
     <div class="col-md-9">
       <div class="row">
         <% if @films.empty? %>
-            <h1 align="center">Добавьте материалов.</h1>
+            <h1 align="center"> <%= t('.add_materials') %></h1>
         <% else %>
             <% @films.each_with_index do |film, index| %>
             <div class="col-md-4 col-sm-6 col-lg-3">

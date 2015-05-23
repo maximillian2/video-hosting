@@ -20,4 +20,49 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  films:
+    index:
+      add_materials: 'Add materials.'
+
+    new:
+      find_header: "Let's find something new!"
+      search_placeholder: 'Type the name of video...'
+      search_button: 'Search!'
+
+    side_menu:
+      my_list: 'My list'
+
+      # First submenu
+      categories: 'Categories'
+      # Content
+      films: 'Films'
+      tv_series: 'TV Series'
+      cartoons: 'Cartoons'
+      cartoon_series: 'Cartoon Series'
+      shows: 'Shows'
+      concerts: 'Concerts'
+
+      # Second submenu
+      genres: 'Genres'
+      # Content
+      anime: 'Anime'
+      action: 'Action'
+      detective: 'Detective'
+      documentary: 'Documentary'
+      drama: 'Drama'
+      comedy: 'Comedy'
+      adventure: 'Adventure'
+      family: 'Family'
+      thriller: 'Thriller'
+      horror: 'Horror'
+      fiction: 'Fiction'
+      fantasy: 'Fantasy'
+      erotica: 'Erotica'
+
+      # Third submenu
+      tags: 'Tags'
+
+    search:
+      search_label: "What's looking for?"
+      # duplicated search_placeholder from new
+      # duplicated search_button from new

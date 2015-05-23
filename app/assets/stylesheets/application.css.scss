@@ -2,7 +2,6 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "jquery.ui.core";
-// you always want that stylesheet
 @import "jquery.ui.accordion";
 
 a, p, h3 {
@@ -71,8 +70,6 @@ body {
   left: 0;
   width: 185px;
   height: 50px;
-  //background-color: #000;
-  //opacity: 0.8;
 }
 
 .poster-actions-inner {
@@ -86,7 +83,6 @@ body {
     color: #000;
   }
 
-  // not working on edit button
   &:focus {
     outline: none;
   }
@@ -134,11 +130,8 @@ body {
 }
 
 .video-item-show {
-  //background-color: #1ACF82;
   background-color: #1E9E5B;
-  //border-color: #49A945;
   border-color: #1ACF82;
-  //border-color: #8FD5A6;
 
   .fa {
     position: relative;
@@ -154,7 +147,6 @@ body {
 .video-item-edit {
   background-color: #E39935;
   border-color: #FFD046;
-  //border-color: #E3C03B;
 
   .fa {
     position: relative;
@@ -189,7 +181,7 @@ body {
   border-color: #ADADAD;
 }
 
-// jQuery UI Accordion Menu Styles yay
+// jQuery UI Accordion Menu Styles
 
 #accordion {
   font-size: 12pt;

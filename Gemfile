@@ -6,7 +6,6 @@ ruby '2.2.0'
 
 # Accordion menus
 gem 'jquery-ui-sass-rails'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 3.2'
 # Basic gem to work with bootstrap
@@ -35,6 +34,8 @@ gem 'httpclient'
 gem 'devise'
 # I want that sexy 'like' condition
 gem 'squeel'
+
+gem 'rails-i18n'
 
 # Simple notification system
 # gem 'bootstrap_notify', '~>0.0.5'
