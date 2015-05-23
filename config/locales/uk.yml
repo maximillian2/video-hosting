@@ -1,0 +1,48 @@
+uk:
+  films:
+    index:
+      add_materials: 'Додати матеріалів.'
+
+    new:
+      find_header: "Знайдемо щось нове!"
+      search_placeholder: 'Введіть назву...'
+      search_button: 'Пошук!'
+
+    side_menu:
+      my_list: 'Мій список'
+
+      # First submenu
+      categories: 'Категорії'
+      # Content
+      films: 'Фільми'
+      tv_series: 'Серіали'
+      cartoons: 'Мультфільми'
+      cartoon_series: 'Мультсеріали'
+      shows: 'Телепередачі'
+      concerts: 'Концерти'
+
+      # Second submenu
+      genres: 'Жанри'
+      # Content
+      anime: 'Аніме'
+      action: 'Бойовик'
+      detective: 'Детектив'
+      documentary: 'Документальний'
+      drama: 'Драма'
+      comedy: 'Комедія'
+      adventure: 'Пригоди'
+      family: 'Сімейний'
+      thriller: 'Трилер'
+      horror: 'Жахи'
+      fiction: 'Фантастика'
+      fantasy: 'Фентезі'
+      erotica: 'Еротика'
+
+      # Third submenu
+      tags: 'Теги'
+
+    search:
+      search_label: "Що шукаємо?"
+      # duplicated search_placeholder from new
+      # duplicated search_button from new
+      found_records: "Знайдено %{number} запис(а/ів)."
