@@ -10,7 +10,7 @@
     <div class="col-md-9">
       <div class="row">
 
-        <%= form_tag('/search', id: 'search-form', method: 'get') do %>
+        <%= form_tag('films/search', id: 'search-form', method: 'get') do %>
             <h3 align="center"><%= t('.search_label') %></h3>
 
             <div class="input-group">
@@ -40,7 +40,7 @@
         <% elsif @search_result.empty? %>
             <%= render partial: 'partials/no_results' %>
         <% else %>
-            <h3 align="center">Найдено <%= @search_result.count %> запись(ей).</h3>
+            <h3 align="center"><%= t('.found_records', number: @search_result.count)%></h3>
             <% @search_result.each_with_index do |item, index| %>
                 <div class="col-md-3 col-sm-6">
                   <div class="col-md-4 col-sm-6 col-lg-3">

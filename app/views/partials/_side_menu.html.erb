@@ -12,16 +12,16 @@
 <hr/>
 
 <div id="accordion">
-  <h3><%= t('films.side.categories') %></h3>
+  <h3><%= t('films.side_menu.categories') %></h3>
 
   <div>
     <ul class="nav nav-pills nav-stacked" id="sidebar-category">
-      <%= link_to_in_li t('films.side_menu.films'), Film.category(current_user.id, 'Фильмы').count, '/films?category=Фильмы', id: 'films_link' %>
-      <%= link_to_in_li t('films.side_menu.tv_series'), Film.category(current_user.id, 'Сериалы').count, '/films?category=Сериалы', id: 'series_link' %>
-      <%= link_to_in_li t('films.side_menu.cartoons'), Film.category(current_user.id, 'Мультфильмы').count, '/films?category=Мультфильмы', id: 'cartoons_link' %>
-      <%= link_to_in_li t('films.side_menu.cartoon_series'), Film.category(current_user.id, 'Мультсериалы').count, '/films?category=Мультсериалы', id: 'cartoon_series_link' %>
-      <%= link_to_in_li t('films.side_menu.shows'), Film.category(current_user.id, 'Телепередачи').count, '/films?category=Телепередачи', id: 'shows_link' %>
-      <%= link_to_in_li t('films.side_menu.concerts'), Film.category(current_user.id, 'Концерты').count, '/films?category=Концерты', id: 'concerts_link' %>
+      <%= link_to_in_li_local t('films.side_menu.films'), Film.category(current_user.id, 'Фильмы').count, category: 'Фильмы', id: 'films_link' %>
+      <%= link_to_in_li_local t('films.side_menu.tv_series'), Film.category(current_user.id, 'Сериалы').count, category: 'Сериалы', id: 'series_link' %>
+      <%= link_to_in_li_local t('films.side_menu.cartoons'), Film.category(current_user.id, 'Мультфильмы').count, category: 'Мультфильмы', id: 'cartoons_link' %>
+      <%= link_to_in_li_local t('films.side_menu.cartoon_series'), Film.category(current_user.id, 'Мультсериалы').count, category: 'Мультсериалы', id: 'cartoon_series_link' %>
+      <%= link_to_in_li_local t('films.side_menu.shows'), Film.category(current_user.id, 'Телепередачи').count, category: 'Телепередачи', id: 'shows_link' %>
+      <%= link_to_in_li_local t('films.side_menu.concerts'), Film.category(current_user.id, 'Концерты').count, category: 'Концерты', id: 'concerts_link' %>
     </ul>
   </div>
 
@@ -29,19 +29,19 @@
 
   <div>
     <ul class="nav nav-pills nav-stacked" id="sidebar-menu">
-      <%= link_to_in_li t('films.side_menu.anime'), Film.genres(current_user.id, '%аниме%').count, '/films?genre=аниме', id: 'anime_link' %>
-      <%= link_to_in_li t('films.side_menu.action'), Film.genres(current_user.id, '%боевик%').count, '/films?genre=боевик', id: "action_movie_link" %>
-      <%= link_to_in_li t('films.side_menu.detective'), Film.genres(current_user.id, '%детектив%').count, '/films?genre=детектив', id: "detective_link" %>
-      <%= link_to_in_li t('films.side_menu.documentary'), Film.genres(current_user.id, '%документальный%').count, '/films?genre=документальный', id: "documentary_link" %>
-      <%= link_to_in_li t('films.side_menu.drama'), Film.genres(current_user.id, '%драма%').count, '/films?genre=драма', id: "drama_link" %>
-      <%= link_to_in_li t('films.side_menu.comedy'), Film.genres(current_user.id, '%комедия%').count, '/films?genre=комедия', id: "comedy_link" %>
-      <%= link_to_in_li t('films.side_menu.adventure'), Film.genres(current_user.id, '%приключения%').count, '/films?genre=приключения', id: "adventure_link" %>
-      <%= link_to_in_li t('films.side_menu.family'), Film.genres(current_user.id, '%семейный%').count, '/films?genre=семейный', id: "family_link" %>
-      <%= link_to_in_li t('films.side_menu.thriller'), Film.genres(current_user.id, '%триллер%').count, '/films?genre=триллер', id: "thriller_link" %>
-      <%= link_to_in_li t('films.side_menu.horror'), Film.genres(current_user.id, '%ужасы%').count, '/films?genre=ужасы', id: "horror_link" %>
-      <%= link_to_in_li t('films.side_menu.fiction'), Film.genres(current_user.id, '%фантастика%').count, '/films?genre=фантастика', id: "fiction_link" %>
-      <%= link_to_in_li t('films.side_menu.fantasy'), Film.genres(current_user.id, '%фэнтези%').count, '/films?genre=фэнтези', id: "fantasy_link" %>
-      <%= link_to_in_li t('films.side_menu.erotica'), Film.genres(current_user.id, '%эротика%').count, '/films?genre=эротика', id: "erotica_link" %>
+      <%= link_to_in_li_local t('films.side_menu.anime'), Film.genres(current_user.id, 'аниме').count, genre: 'аниме', id: 'anime_link' %>
+      <%= link_to_in_li_local t('films.side_menu.action'), Film.genres(current_user.id, 'боевик').count, genre: 'боевик', id: 'action_movie_link' %>
+      <%= link_to_in_li_local t('films.side_menu.detective'), Film.genres(current_user.id, 'детектив').count, genre: 'детектив', id: 'detective_link' %>
+      <%= link_to_in_li_local t('films.side_menu.documentary'), Film.genres(current_user.id, 'документальный').count, genre: 'документальный', id: 'documentary_link' %>
+      <%= link_to_in_li_local t('films.side_menu.drama'), Film.genres(current_user.id, 'драма').count, genre: 'драма', id: 'drama_link' %>
+      <%= link_to_in_li_local t('films.side_menu.comedy'), Film.genres(current_user.id, 'комедия').count, genre: 'комедия', id: 'comedy_link' %>
+      <%= link_to_in_li_local t('films.side_menu.adventure'), Film.genres(current_user.id, 'приключения').count, genre: 'приключения', id: 'adventure_link' %>
+      <%= link_to_in_li_local t('films.side_menu.family'), Film.genres(current_user.id, 'семейный').count, genre: 'семейный', id: 'family_link' %>
+      <%= link_to_in_li_local t('films.side_menu.thriller'), Film.genres(current_user.id, 'триллер').count, genre: 'триллер', id: 'thriller_link' %>
+      <%= link_to_in_li_local t('films.side_menu.horror'), Film.genres(current_user.id, 'ужасы').count, genre: 'ужасы', id: 'horror_link' %>
+      <%= link_to_in_li_local t('films.side_menu.fiction'), Film.genres(current_user.id, 'фантастика').count, genre: 'фантастика', id: 'fiction_link' %>
+      <%= link_to_in_li_local t('films.side_menu.fantasy'), Film.genres(current_user.id, 'фэнтези').count, genre: 'фэнтези', id: 'fantasy_link' %>
+      <%= link_to_in_li_local t('films.side_menu.erotica'), Film.genres(current_user.id, 'эротика').count, genre: 'эротика', id: 'erotica_link' %>
     </ul>
   </div>
 

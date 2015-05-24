@@ -3,6 +3,7 @@
 @import "font-awesome";
 @import "jquery.ui.core";
 @import "jquery.ui.accordion";
+@import "famfamfam-flags";
 
 a, p, h3 {
   color: #000;
@@ -42,6 +43,11 @@ body {
 .user {
   position: relative;
   top: 5px;
+}
+
+li.locales {
+  position: relative;
+  top: 4px;
 }
 
 .thumbnail img {

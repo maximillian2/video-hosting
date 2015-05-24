@@ -35,7 +35,12 @@ gem 'devise'
 # I want that sexy 'like' condition
 gem 'squeel'
 
+# Internationalization
 gem 'rails-i18n'
+# CSS flags
+gem 'famfamfam_flags_rails'
+
+
 
 # Simple notification system
 # gem 'bootstrap_notify', '~>0.0.5'
