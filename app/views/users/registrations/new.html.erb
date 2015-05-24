@@ -1,36 +1,31 @@
 <div class="container">
   <div class="col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 text-center">
     <fieldset class="signup-border">
-      <legend class="signup-border">Sign Up</legend>
+      <legend class="signup-border"><%= t('users.registrations.new.legend_label')%></legend>
       <div class="control-group">
-        <!--<h2>Sign up</h2>-->
-
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
 
             <div class="field">
-              <!--<#%= f.label :email %><br/>-->
-              <%= f.email_field :email, placeholder: 'Email' %>
+              <%= f.email_field :email, placeholder: t('users.sessions.new.email_label') %>
             </div>
 
             <div class="field">
-              <!--<#%= f.label :password %>-->
               <% if @validatable %>
-                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <em><%= t('users.registrations.new.minimum_chars', number: @minimum_password_length) %></em>
               <% end %><br/>
-              <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+              <%= f.password_field :password, autocomplete: "off", placeholder: t('users.sessions.new.password_label') %>
             </div>
 
             <div class="field">
-              <!--<#%= f.label :password_confirmation %> -->
               <br/>
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Re-type password' %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: t('users.registrations.new.retype_password') %>
             </div>
 
             <br/>
 
             <div class="actions">
-              <%= f.submit "Sign up", class: 'btn btn-success' %>
+              <%= f.submit t('users.registrations.new.signup_label'), class: 'btn btn-success' %>
             </div>
         <% end %>
 

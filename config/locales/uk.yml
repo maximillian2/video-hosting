@@ -46,3 +46,22 @@ uk:
       # duplicated search_placeholder from new
       # duplicated search_button from new
       found_records: "Знайдено %{number} запис(а/ів)."
+
+  users:
+    # Log in form
+    sessions:
+      new:
+        legend_label: 'Авторизація'
+        email_label: 'Електронна адреса'
+        password_label: 'Пароль'
+        remember_me: "Запам'ятати мене"
+        login_label: 'Ввійти'
+
+    # Sign up form
+    registrations:
+      new:
+        legend_label: 'Реєстрація'
+        retype_password: 'Введіть пароль ще раз'
+        signup_label: 'Зареєструватися'
+        forgot_password: 'Забули пароль?'
+        minimum_chars: "(%{number} символів якнайменше)"

@@ -42,7 +42,25 @@ en:
       tags: 'Tags'
 
     search:
-      search_label: "What's looking for?"
+      search_label: "What're we looking for?"
       # duplicated search_placeholder from new
       # duplicated search_button from new
       found_records: "Found %{number} record(s)."
+
+  users:
+    # Log in form
+    sessions:
+      new:
+        legend_label: 'Log in'
+        email_label: 'Email'
+        password_label: 'Password'
+        remember_me: 'Remember me'
+        login_label: 'Log in'
+    # Sign up form
+    registrations:
+      new:
+        legend_label: 'Sign up'
+        retype_password: 'Re-type password'
+        signup_label: 'Sign up'
+        forgot_password: 'Forgot password?'
+        minimum_chars: "(%{number} characters minimum)"

@@ -35,8 +35,11 @@ gem 'devise'
 # I want that sexy 'like' condition
 gem 'squeel'
 
-# Internationalization
+#  Internationalization support
 gem 'rails-i18n'
+# Translations for devise
+# gem 'devise-i18n'
+
 # CSS flags
 gem 'famfamfam_flags_rails'
 
