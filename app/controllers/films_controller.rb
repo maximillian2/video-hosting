@@ -35,7 +35,12 @@ class FilmsController < ApplicationController
         doc = Nokogiri::HTML(open("#{ 'http://fs.to' + i['link'] }"))
         itemprop_image = doc.xpath("//img[@itemprop='image']")
         # Get the link of original image poster through XPath
-        i['poster'] = itemprop_image.attr('src').value unless itemprop_image.nil?
+        if itemprop_image.empty?
+          #  temp image
+          i['poster'] = 'https://dl-web.dropbox.com/get/help.png?_subject_uid=39946975&w=AAB622yAPa4tOG-fG4xt4PTrrhycOlmfoDryDahmzot1aw'
+        else
+          i['poster'] = itemprop_image.attr('src').value
+        end
       end
     elsif params[:add_field] && params[:add_field].empty?
       @add_result = ''
@@ -95,7 +100,7 @@ class FilmsController < ApplicationController
     if params[:search_field] && !params[:search_field].empty?
       search_result = params[:search_field]
       user = current_user.id # => squeel workimg properly after this
-      @search_result = Film.joins(:users).where { (users.id == user ) & (title.matches "%#{search_result}%") }
+      @search_result = Film.joins(:users).where { (users.id == user) & (title.matches "%#{search_result}%") }
     elsif params[:search_field] && params[:search_field].empty?
       @search_result = ''
     else
