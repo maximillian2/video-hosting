@@ -69,6 +69,14 @@ en:
       new:
         instructions: 'Send me reset password instructions'
 
-    no_results:
-      no_results_header: 'No Results To Display'
-      no_results_paragraph: 'Sorry, no items matched your search criteria.'
+  no_results:
+    no_results_header: 'No Results To Display'
+    no_results_paragraph: 'Sorry, no items matched your search criteria.'
+
+  modal:
+    category: 'Category: '
+    genres: 'Genres: '
+    country: 'Country: '
+    year: 'Year: '
+    save_changes: 'Save changes'
+    delete_record: 'Delete record'

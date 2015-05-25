@@ -17,13 +17,13 @@
             <div class="col-md-4">
               <div class="row">
                 <div class="col-md-10">
-                  <p class="modal-text"> Категория: <%= edit_film.category %> </p>
+                  <p class="modal-text"> <%= t('modal.category') + edit_film.category %> </p>
 
-                  <p class="modal-text"> Жанры:  <%= edit_film.genres %> </p>
+                  <p class="modal-text"> <%= t('modal.genres') +  edit_film.genres %> </p>
 
-                  <p class="modal-text"> Страна: <%= edit_film.country %> </p>
+                  <p class="modal-text"> <%= t('modal.country') + edit_film.country %> </p>
 
-                  <p class="modal-text"> Год:  <%= edit_film.year %> </p>
+                  <p class="modal-text"> <%= t('modal.year') + edit_film.year.to_s %> </p>
                 </div>
               </div>
             </div>
@@ -31,9 +31,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success">Сохранить изменения</button>
+        <button type="button" class="btn btn-success"> <%= t('modal.save_changes')%> </button>
         <!-- FIXME link here -->
-        <%= link_to 'Удалить запись', edit_film, method: :delete, class: 'btn btn-danger' %>
+        <%= link_to t('modal.delete_record'), edit_film, method: :delete, class: 'btn btn-danger' %>
       </div>
     </div>
   </div>

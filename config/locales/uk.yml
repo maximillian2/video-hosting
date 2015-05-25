@@ -73,3 +73,11 @@ uk:
     no_results:
       no_results_header: 'Нема результатів для відображення'
       no_results_paragraph: 'На жаль, нема пунктів, які відповідають критеріям пошуку.'
+
+  modal:
+    category: 'Категорія: '
+    genres: 'Жанри: '
+    country: 'Країна: '
+    year: 'Рік: '
+    save_changes: 'Зберегти зміни'
+    delete_record: 'Видалити запис'

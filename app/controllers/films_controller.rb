@@ -8,7 +8,6 @@ class FilmsController < ApplicationController
     @films = Film.joins(:users).where(users: { id: current_user.id })
     @films = @films.genres(current_user.id, params[:genre]) if params[:genre]
     @films = @films.category(current_user.id, params[:category]) if params[:category]
-    p @films
   end
 
   def show
