@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
     devise_for :users
 
-    get 'films/search', to: 'films#search'
-
     # Creates set of REST routes
-    resources :films
+    resources :films do
+      get 'search', on: :collection
+    end
 
   end
   get '/:locale' => 'films#index'
