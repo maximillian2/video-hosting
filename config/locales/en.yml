@@ -64,3 +64,7 @@ en:
         signup_label: 'Sign up'
         forgot_password: 'Forgot password?'
         minimum_chars: "(%{number} characters minimum)"
+
+    passwords:
+      new:
+        instructions: 'Send me reset password instructions'

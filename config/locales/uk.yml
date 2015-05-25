@@ -65,3 +65,7 @@ uk:
         signup_label: 'Зареєструватися'
         forgot_password: 'Забули пароль?'
         minimum_chars: "(%{number} символів якнайменше)"
+
+    passwords:
+      new:
+        instructions: 'Надіслати мені інструкції скидання паролю'
