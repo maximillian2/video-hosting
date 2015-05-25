@@ -69,3 +69,7 @@ uk:
     passwords:
       new:
         instructions: 'Надіслати мені інструкції скидання паролю'
+
+    no_results:
+      no_results_header: 'Нема результатів для відображення'
+      no_results_paragraph: 'На жаль, нема пунктів, які відповідають критеріям пошуку.'

@@ -68,3 +68,7 @@ en:
     passwords:
       new:
         instructions: 'Send me reset password instructions'
+
+    no_results:
+      no_results_header: 'No Results To Display'
+      no_results_paragraph: 'Sorry, no items matched your search criteria.'
