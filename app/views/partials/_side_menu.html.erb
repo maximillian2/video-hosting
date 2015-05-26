@@ -7,7 +7,7 @@
 </script>
 
 <!-- sidebar menu-->
-        <h3><%= link_to content_tag(:button, "#{Film.user_films(current_user.id).count.to_s}", class: 'badge pull-right') + t('films.side_menu.my_list'), root_path %> </h3>
+        <h3><%= link_to t('films.side_menu.my_list'), root_path %> <%= " (#{Film.user_films(current_user.id).count.to_s})"%> </h3>
 
 <hr/>
 

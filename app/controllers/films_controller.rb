@@ -63,18 +63,13 @@ class FilmsController < ApplicationController
 
     doc = Nokogiri::HTML(open("#{ @film.link }"))
 
-    original_title = doc.xpath("//div[@itemprop='alternativeHeadline']").text
-    if original_title.empty?
-      @film.original_title = '–'
-      # @film.rating = 0
-    else
-      @film.original_title = original_title
-      ## TODO вопрос аниме открыт
-      # imdb = FilmBuff::IMDb.new
-      # rating_value = imdb.find_by_title(@film.original_title)
-      # @film.rating = rating_value.rating
-      # @film.rating = rating_value.nil? ? 0 : rating_value.rating
-    end
+    original_title = if @film.category == 'Телепередачи'
+                       doc.xpath('/html/body/div[1]/div/div[2]/div/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div/div').children.text
+                     else
+                       doc.xpath("//div[@itemprop='alternativeHeadline']").text
+                     end
+
+    @film.original_title = original_title
 
     if @film.save
       @user.films << @film

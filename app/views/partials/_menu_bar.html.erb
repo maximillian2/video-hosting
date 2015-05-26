@@ -12,9 +12,9 @@
         <li> <%= link_to fa_icon('plus 2x', class: 'fa-fw'), new_film_path %> </li>
         <li> <%= link_to fa_icon('search 2x', class: 'fa-fw'), search_films_path %> </li>
         <li>
-          <%= link_to '#', class: 'user', data: { toggle: 'dropdown'}, role: 'button' do %>
+          <%= link_to '#', class: 'user', data: { toggle: 'dropdown' }, role: 'button' do %>
               <%= current_user.email %>
-              <%= fa_icon('caret-square-o-down', class: 'fa-fw')%>
+              <%= fa_icon('caret-square-o-down', class: 'fa-fw') %>
           <% end %>
           <ul class="dropdown-menu" role="menu">
             <li>
