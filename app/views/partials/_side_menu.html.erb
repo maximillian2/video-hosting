@@ -1,13 +1,18 @@
 <script>
     $(function () {
         $("#accordion").accordion({
-            active: false
+            active:
+            <% if       params.has_key?(:category) %>   0 // category section
+            <% elsif    params.has_key?(:genre) %>      1 // genres section
+            <% elsif    params.has_key?(:tags)  %>      2 // tags section
+            <% else %>                                  0 // by default using category behaviour
+            <% end %>
         });
     });
 </script>
 
 <!-- sidebar menu-->
-        <h3><%= link_to t('films.side_menu.my_list'), root_path %> <%= " (#{Film.user_films(current_user.id).count.to_s})"%> </h3>
+<h3><%= link_to t('films.side_menu.my_list'), root_path %> <%= " (#{Film.user_films(current_user.id).count.to_s})" %> </h3>
 
 <hr/>
 
@@ -25,7 +30,7 @@
     </ul>
   </div>
 
-  <h3><%= t('films.side_menu.genres')%></h3>
+  <h3><%= t('films.side_menu.genres') %></h3>
 
   <div>
     <ul class="nav nav-pills nav-stacked" id="sidebar-menu">
@@ -45,7 +50,7 @@
     </ul>
   </div>
 
-  <h3><%= t('films.side_menu.tags')%></h3>
+  <h3><%= t('films.side_menu.tags') %></h3>
 
   <div>
     <p>Not realised yet.</p>

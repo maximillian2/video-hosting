@@ -35,6 +35,9 @@ gem 'devise'
 # I want that sexy 'like' condition
 gem 'squeel'
 
+gem 'jquery-cookie-rails'
+
+
 #  Internationalization support
 gem 'rails-i18n'
 # Translations for devise
