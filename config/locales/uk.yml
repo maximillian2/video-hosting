@@ -81,3 +81,9 @@ uk:
     year: 'Рік: '
     save_changes: 'Зберегти зміни'
     delete_record: 'Видалити запис'
+
+
+  menu_bar:
+    account_settings:
+      edit_account: 'Редагувати акаунт'
+      sign_out: 'Вийти'

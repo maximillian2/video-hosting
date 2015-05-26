@@ -20,14 +20,14 @@
             <li>
               <%= link_to edit_user_registration_path do %>
                   <%= fa_icon('pencil', class: 'fa-fw') %>
-                  Edit account
+                  <%= t('menu_bar.account_settings.edit_account') %>
               <% end %>
             </li>
             <li class="divider"></li>
             <li>
               <%= link_to destroy_user_session_path, :method => :delete do %>
                   <%= fa_icon('sign-out', class: 'fa-fw') %>
-                  Sign out
+                  <%= t('menu_bar.account_settings.sign_out') %>
               <% end %>
             </li>
           </ul>

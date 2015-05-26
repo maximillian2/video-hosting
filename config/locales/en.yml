@@ -8,6 +8,7 @@ en:
       search_placeholder: 'Type the name of video...'
       search_button: 'Search!'
 
+    ## TODO refactor me, put this in partial section
     side_menu:
       my_list: 'My list'
 
@@ -80,3 +81,8 @@ en:
     year: 'Year: '
     save_changes: 'Save changes'
     delete_record: 'Delete record'
+
+  menu_bar:
+    account_settings:
+      edit_account: 'Edit account'
+      sign_out: 'Sign out'
