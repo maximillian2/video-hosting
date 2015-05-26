@@ -7,6 +7,8 @@ en:
       find_header: "Let's find something new!"
       search_placeholder: 'Type the name of video...'
       search_button: 'Search!'
+      add_button: 'Add'
+
 
     ## TODO refactor me, put this in partial section
     side_menu:

@@ -15,7 +15,7 @@
             <div class="input-group">
               <%= text_field_tag('add_field', nil, id: 'new-input', class: 'form-control', type: 'text', maxlength: 50, placeholder: t('.search_placeholder'), autofocus: true) %>
               <span class="input-group-btn">
-                <button type="submit" class="btn btn-default"> <%= t('.search_button')%> </button>
+                <button type="submit" class="btn btn-default"> <%= t('.search_button') %> </button>
               </span>
             </div>
         <% end %>
@@ -39,12 +39,11 @@
         <% if @add_result.nil? %>
             <!-- First time clicked on add button-->
         <% elsif @add_result.empty? %>
-            <!-- TODO put this into partial or helper-->
             <%= render partial: 'partials/no_results' %>
         <% else %>
             <% @add_result.each do |result| %>
-                <div class="col-md-3 col-sm-6 col-lg-3">
-                  <%= form_tag('/films', method: :post) do %>
+                <div class="col-md-3 col-sm-6 col-lg-3 text-center">
+                  <%= form_tag('/films', id: 'form', method: :post) do %>
                       <input type="hidden" value="<%= result['poster'] %>" name="poster"/>
                       <input type="hidden" value="<%= result['title'] %>" name="title"/>
                       <input type="hidden" value="<%= 'http://www.fs.to' + result['link'] %>" name="link"/>
@@ -53,22 +52,30 @@
                       <input type="hidden" value="<%= result['year'][0] %>" name="year"/>
                       <input type="hidden" value="<%= result['country'][0] %>" name="country"/>
 
-                      <a class="thumbnail"> <img src="<%= result['poster'] %>" alt="poster"/> </a>
+                      <div class="video-add-height">
+                        <div class="thumbnail">
+                          <img src="<%= result['poster'] %>" alt="poster" class="round-pic"/>
 
-                      <!--<p class="text-center">-->
-                      <p> <%= link_to result['title'], 'http://www.fs.to' + result['link'] %> </p>
+                          <div class="poster-actions">
+                            <!--<div class="poster-actions-inner">-->
+                            <%= link_to fa_icon('arrow-circle-o-down 3x', class: 'fa-fw'), '', class: 'video-add', onclick: "$(this).closest('form').submit()" %>
+                            <!--</div>-->
+                          </div>
+                        </div>
 
-                      <p> Категория: <%= result['subsection'] %> </p>
+                        <p class="p-height"> <%= link_to result['title'], 'http://www.fs.to' + result['link'] %> </p>
 
-                      <p>
-                        Жанры: <%= result['genres'].class == Array ? result['genres'].join(', ') : result['genres'] = '–' %> </p>
+                        <p> <%= t('modal.category') + result['subsection'] %> </p>
 
-                      <p> Год: <%= result['year'][0] %> </p>
+                        <p>
+                          <%= t('modal.genres') + (result['genres'].class == Array ? result['genres'].join(', ') : result['genres'] = '–') %> </p>
 
-                      <p> Страна: <%= result['country'][0] %> </p>
+                        <p> <%= t('modal.year') + result['year'][0].to_s %> </p>
 
-                      <button type='submit' class="btn btn-success"> Добавить</button>
-                      <!--<br/>-->
+                        <p> <%= t('modal.country') + result['country'][0] %> </p>
+
+                        <!--<button type='submit' class="btn btn-success"> <#%= t('.add_button') %> </button>-->
+                      </div>
                   <% end %>
                 </div>
             <% end %>

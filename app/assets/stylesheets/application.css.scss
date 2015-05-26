@@ -207,9 +207,31 @@ fieldset.signup-border {
 }
 
 legend.signup-border {
-  width:inherit; /* Or auto */
-  padding:0 10px; /* To give a bit of padding on the left and right */
-  border-bottom:none;
+  width: inherit; /* Or auto */
+  padding: 0 10px; /* To give a bit of padding on the left and right */
+  border-bottom: none;
   font-size: 2.0em !important;
   font-weight: bold !important;
+}
+
+.video-add {
+  color: #000;
+
+  &:hover {
+    color: #50E416;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.video-add-height {
+  height: 600px;
+  display: block;
+}
+
+// make this unique for each value
+.p-height {
+  height: 10px;
 }
