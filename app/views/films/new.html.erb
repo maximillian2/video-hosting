@@ -9,7 +9,7 @@
 
     <div class="col-md-9">
       <div class="row">
-        <%= form_tag('/films/new', id: 'new-form', method: 'get') do %>
+        <%= form_tag(new_film_path, id: 'new-form', method: 'get') do %>
             <h3 align="center"> <%= t('.find_header') %> </h3>
 
             <div class="input-group">
