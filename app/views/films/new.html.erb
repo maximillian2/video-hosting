@@ -36,6 +36,7 @@
       <br/>
 
       <div class="row">
+        <img src="http://cs5.pikabu.ru/images/big_size_comm_an/2015-04_2/14283911539244.gif" style="display: none;" id="loading_image">
         <% if @add_result.nil? %>
             <!-- First time clicked on add button-->
         <% elsif @add_result.empty? %>
@@ -56,25 +57,21 @@
                         <div class="thumbnail">
                           <img src="<%= result['poster'] %>" alt="poster" class="round-pic"/>
 
-                          <div class="poster-actions">
-                            <!--<div class="poster-actions-inner">-->
-                            <%= link_to fa_icon('arrow-circle-o-down 3x', class: 'fa-fw'), '', class: 'video-add', onclick: "$(this).closest('form').submit()" %>
-                            <!--</div>-->
+                          <div class="poster-actions-add">
+                            <%= link_to fa_icon('plus-square 3x', class: 'fa-fw'), '', class: 'video-add', onclick: "$(this).closest('form').submit()" %>
                           </div>
                         </div>
 
-                        <p class="p-height"> <%= link_to result['title'], 'http://www.fs.to' + result['link'] %> </p>
+                        <h5 class="title-height"> <%= link_to result['title'], 'http://www.fs.to' + result['link'] %> </h5>
 
-                        <p> <%= t('modal.category') + result['subsection'] %> </p>
+                        <p class="p-default-height"> <%= t('modal.category') + result['subsection'] %> </p>
 
-                        <p>
+                        <p class="p-genres-height">
                           <%= t('modal.genres') + (result['genres'].class == Array ? result['genres'].join(', ') : result['genres'] = '–') %> </p>
 
-                        <p> <%= t('modal.year') + result['year'][0].to_s %> </p>
+                        <p class="p-default-height"> <%= t('modal.year') + result['year'][0].to_s %> </p>
 
-                        <p> <%= t('modal.country') + result['country'][0] %> </p>
-
-                        <!--<button type='submit' class="btn btn-success"> <#%= t('.add_button') %> </button>-->
+                        <p class="p-default-height"> <%= t('modal.country') + result['country'][0] %> </p>
                       </div>
                   <% end %>
                 </div>

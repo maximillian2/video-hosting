@@ -78,6 +78,18 @@ li.locales {
   height: 50px;
 }
 
+
+.poster-actions-add {
+  position: absolute;
+  top: 220px;
+  left: 0;
+  width: 185px;
+  height: 50px;
+
+  background-color: #A8A8A8;
+  opacity: 0.8;
+}
+
 .poster-actions-inner {
   width: 185px;
   height: 50px;
@@ -215,10 +227,11 @@ legend.signup-border {
 }
 
 .video-add {
-  color: #000;
-
+  position: relative;
+  top: 5px;
+  color: #E0303A;
   &:hover {
-    color: #50E416;
+    color: #FF6771;
   }
 
   &:focus {
@@ -231,7 +244,13 @@ legend.signup-border {
   display: block;
 }
 
-// make this unique for each value
-.p-height {
-  height: 10px;
+.p-default-height {
+  height: 20px;
+}
+.title-height {
+  height: 50px;
+}
+
+.p-genres-height {
+  height: 70px;
 }
