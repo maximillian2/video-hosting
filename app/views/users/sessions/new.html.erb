@@ -10,11 +10,11 @@
               <i class="famfamfam-flag-ua"></i>
           <% end %>
           <div class="form-group">
-            <%= f.email_field :email, placeholder: t('users.sessions.new.email_label') %>
+            <%= f.email_field :email, class: 'form-control', placeholder: t('users.sessions.new.email_label') %>
           </div>
 
           <div class="form-group">
-            <%= f.password_field :password, placeholder: t('users.sessions.new.password_label'), autocomplete: "off" %>
+            <%= f.password_field :password, class: 'form-control', placeholder: t('users.sessions.new.password_label'), autocomplete: "off" %>
           </div>
 
           <% if devise_mapping.rememberable? %>

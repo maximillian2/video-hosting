@@ -67,6 +67,17 @@ uk:
         forgot_password: 'Забули пароль?'
         minimum_chars: "(%{number} символів якнайменше)"
 
+      edit:
+        edit_account_header: 'Редагування акаунту користувача'
+        password_confirmation: 'Підтвердження паролю'
+        maybe_blank_password: '(залиште порожнім, якщо не хочете змінювати його)'
+        current_password: 'Поточний пароль'
+        current_password_info: '(нам потрібен ваш поточний пароль для підтвердження змін)'
+        delete_account: 'Видалити акаунт'
+        delete_your_account: 'Видалити свій акаунт'
+        update_account: 'Оновити інформацію'
+
+
     passwords:
       new:
         instructions: 'Надіслати мені інструкції скидання паролю'

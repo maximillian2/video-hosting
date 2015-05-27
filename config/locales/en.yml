@@ -59,6 +59,7 @@ en:
         password_label: 'Password'
         remember_me: 'Remember me'
         login_label: 'Log in'
+
     # Sign up form
     registrations:
       new:
@@ -68,9 +69,20 @@ en:
         forgot_password: 'Forgot password?'
         minimum_chars: "(%{number} characters minimum)"
 
+      edit:
+        edit_account_header: 'User Account Edit'
+        password_confirmation: 'Password confirmation'
+        maybe_blank_password: "(leave blank if you don't want to change it)"
+        current_password: 'Current password'
+        current_password_info: '(we need your current password to confirm your changes)'
+        delete_account: 'Delete account'
+        delete_your_account: 'Delete your account'
+        update_account: 'Update information'
+
     passwords:
       new:
         instructions: 'Send me reset password instructions'
+
 
   no_results:
     no_results_header: 'No Results To Display'
