@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   scope "(:locale)", :locale => /en|uk/ do # at the beginning
 
     devise_for :users

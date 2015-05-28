@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
+  helper_method :resource, :resource_name, :devise_mapping
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end

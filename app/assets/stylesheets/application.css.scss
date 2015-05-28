@@ -78,7 +78,6 @@ li.locales {
   height: 50px;
 }
 
-
 .poster-actions-add {
   position: absolute;
   top: 220px;
@@ -247,10 +246,53 @@ legend.signup-border {
 .p-default-height {
   height: 20px;
 }
+
 .title-height {
   height: 50px;
 }
 
 .p-genres-height {
   height: 70px;
+}
+
+.welcome-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+//hr {
+//  border: 0;
+//  height: 0;
+//  border-top: 1px solid rgba(0, 0, 0, 0.1);
+//  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+//}
+
+.site-wrapper {
+  display: table;
+}
+
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+body.welcome-body {
+  background-image: image-url("background.jpg");
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  background-color:rgba(235,235,235,0.5);
 }
