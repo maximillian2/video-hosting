@@ -5,9 +5,11 @@
       <legend class="signup-border"><%= t('users.sessions.new.legend_label') %> </legend>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= link_to params.merge(locale: 'en') do %>
+              <% cookies[:locale] = 'en'%>
               <i class="famfamfam-flag-gb"></i>
           <% end %>
           <%= link_to params.merge(locale: 'uk') do %>
+              <% cookies[:locale] = 'uk'%>
               <i class="famfamfam-flag-ua"></i>
           <% end %>
           <div class="form-group normal-width">
