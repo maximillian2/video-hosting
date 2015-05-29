@@ -1,4 +1,12 @@
 <body class="welcome-body">
+<div class="welcome-locales">
+  <%= link_to params.merge(locale: 'en') do %>
+      <i class="famfamfam-flag-gb"></i> UK
+  <% end %>
+  <%= link_to params.merge(locale: 'uk') do %>
+      <i class="famfamfam-flag-ua"></i> UA
+  <% end %>
+</div>
 <div class="container site-wrapper">
   <div class="jumbotron">
     <div class="text-center inner">

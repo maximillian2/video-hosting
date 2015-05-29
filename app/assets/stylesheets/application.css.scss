@@ -294,7 +294,15 @@ body.welcome-body {
 }
 
 .jumbotron {
-  background-color:rgba(235,235,235,0.5);
+  background-color: rgba(235, 235, 235, 0.5);
+}
+
+.form-color {
+  border: 0;
+  border-radius: 6px;
+  background-color: rgba(235, 235, 235, 0.5);
+  padding-bottom: 15px;
+  padding-top: 5px;
 }
 
 .normal-width {
@@ -303,6 +311,21 @@ body.welcome-body {
   width: 200px;
 }
 
-p.lead{
+p.lead {
   font-weight: 500;
+}
+
+#my_list_header {
+  position: relative;
+  left: 37px;
+}
+
+.welcome-locales {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  a {
+    color: #fff;
+  }
 }
