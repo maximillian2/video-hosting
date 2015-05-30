@@ -47,6 +47,8 @@ gem 'rails-i18n'
 gem 'famfamfam_flags_rails'
 
 
+# gem 'country_select', github: 'stefanpenner/country_select'
+
 
 # Simple notification system
 # gem 'bootstrap_notify', '~>0.0.5'

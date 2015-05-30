@@ -100,3 +100,9 @@ en:
     account_settings:
       edit_account: 'Edit account'
       sign_out: 'Sign out'
+
+  welcome:
+    index:
+      slogan: 'Video info in one place'
+      short_decription: 'Video Depot is a service to help forget the number of movies or anything else you watched in your life with intuitive user interface.'
+      button: 'Take me in!'
