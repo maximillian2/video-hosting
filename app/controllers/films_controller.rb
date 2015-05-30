@@ -36,7 +36,7 @@ class FilmsController < ApplicationController
         # Get the link of original image poster through XPath
         if itemprop_image.empty?
           #  temp image
-          i['poster'] = 'https://dl-web.dropbox.com/get/help.png?_subject_uid=39946975&w=AAB622yAPa4tOG-fG4xt4PTrrhycOlmfoDryDahmzot1aw'
+          i['poster'] = '/assets/help.png'
         else
           i['poster'] = itemprop_image.attr('src').value
         end
