@@ -11,7 +11,14 @@
 </script>
 
 <!-- sidebar menu-->
-<h3 id="my_list_header"><%= link_to t('films.side_menu.my_list'), root_path %> <%= " (#{Film.user_films(current_user.id).count.to_s})" %> </h3>
+<h3 id="my_list_header"><%= link_to t('films.side_menu.my_list'), root_path, name: 'film_counter', data: { toggle: 'tooltip'}, title: "all: #{Film.user_films(current_user.id).count.to_s}" %></h3>
+
+<script>
+    $('a[name=film_counter]').tooltip({ /*or use any other selector, class, ID*/
+        placement: "right",
+        trigger: "hover"
+    });
+</script>
 
 <hr/>
 

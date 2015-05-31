@@ -16,15 +16,3 @@
 //= require jquery.ui.accordion
 //= require turbolinks
 //= require_tree .
-
-$(document).ready(function(){
-    $('input[type=password][name=password_hint]').tooltip({ /*or use any other selector, class, ID*/
-        placement: "right",
-        trigger: "focus"
-    });
-
-    $('input[type=password][name=current_password_hint]').tooltip({ /*or use any other selector, class, ID*/
-        placement: "right",
-        trigger: "focus"
-    });
-});

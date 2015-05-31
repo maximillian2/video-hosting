@@ -16,7 +16,7 @@
 
         <div class="field">
           <%= f.label t('users.sessions.new.password_label') %><br/>
-          <%= f.password_field :password, name: 'password_hint', class: 'form-control', autocomplete: 'off', data: { toggle: 'tooltip', placement: 'right' }, title: t('users.registrations.edit.maybe_blank_password') %>
+          <%= f.password_field :password, name: 'password_hint', class: 'form-control', autocomplete: 'off', data: { toggle: 'tooltip'}, title: t('users.registrations.edit.maybe_blank_password') %>
         </div>
 
         <div class="field">
@@ -26,8 +26,10 @@
 
         <div class="field">
           <%= f.label t('users.registrations.edit.current_password')%><br/>
-          <%= f.password_field :current_password, name: 'current_password_hint', class: 'form-control', autocomplete: 'off', data: { toggle: 'tooltip', placement: 'right' }, title: t('users.registrations.edit.current_password_info') %>
+          <%= f.password_field :current_password, name: 'current_password_hint', class: 'form-control', autocomplete: 'off', data: { toggle: 'tooltip'}, title: t('users.registrations.edit.current_password_info') %>
         </div>
+
+
 
         <br/>
 
@@ -43,3 +45,15 @@
     <%= link_to "Back", :back, class: 'btn btn-default'%>
   </div>
 </div>
+
+<script>
+    $('input[type=password][name=password_hint]').tooltip({ /*or use any other selector, class, ID*/
+        placement: "right",
+        trigger: "focus"
+    });
+
+    $('input[type=password][name=current_password_hint]').tooltip({ /*or use any other selector, class, ID*/
+        placement: "right",
+        trigger: "focus"
+    });
+</script>
