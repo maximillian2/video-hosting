@@ -61,9 +61,11 @@
 
   <div>
     <ul class="nav nav-pills nav-stacked">
-    <% @uniq_tags.each do |t| %>
-        <p> <%= link_to_in_li_local t, Film.tags(current_user.id, t).count, tag: t %> </p>
-    <% end %>
+      <% unless @uniq_tags.nil? %>
+          <% @uniq_tags.each do |t| %>
+              <p> <%= link_to_in_li_local t, Film.tags(current_user.id, t).count, tag: t %> </p>
+          <% end %>
+      <% end %>
     </ul>
   </div>
 

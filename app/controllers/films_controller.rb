@@ -128,7 +128,7 @@ class FilmsController < ApplicationController
     arr = []
     Film.user_films(current_user.id).to_a.each {|i| arr << i.tags unless i.tags.nil? }
 
-    @uniq_tags = arr.join(', ').split(', ').uniq.reject!(&:empty?)
+    p @uniq_tags = arr.join(', ').split(', ').uniq.reject!(&:empty?)
   end
 
 end
