@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   end
   get '/:locale' => 'films#index'
-
   # Set root URL
   root :to => 'welcome#index'
 end

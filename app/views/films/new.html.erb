@@ -36,7 +36,7 @@
       <br/>
 
       <div class="row">
-        <img src="http://cs5.pikabu.ru/images/big_size_comm_an/2015-04_2/14283911539244.gif" style="display: none;" id="loading_image">
+        <!--<img src="http://cs5.pikabu.ru/images/big_size_comm_an/2015-04_2/14283911539244.gif" style="display: none;" id="loading_image">-->
         <% if @add_result.nil? %>
             <!-- First time clicked on add button-->
         <% elsif @add_result.empty? %>
@@ -52,6 +52,7 @@
                       <input type="hidden" value="<%= result['subsection'] %>" name="category"/>
                       <input type="hidden" value="<%= result['year'][0] %>" name="year"/>
                       <input type="hidden" value="<%= result['country'][0] %>" name="country"/>
+                      <input type="hidden" value="<%= result['description'] %>" name="description"/>
 
                       <div class="video-add-height">
                         <div class="thumbnail">

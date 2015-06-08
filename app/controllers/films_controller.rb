@@ -3,11 +3,16 @@ class FilmsController < ApplicationController
   before_action :authenticate_user!
   before_filter :find_item, only: [:show, :edit, :update, :destroy]
 
+  before_action :update_tags, only: [:index, :new, :search]
+  after_action :update_tags, only: [:update]
+
   def index
     @user = current_user
+    ## FIXME replace with scope user_films
     @films = Film.joins(:users).where(users: { id: current_user.id })
     @films = @films.genres(current_user.id, params[:genre]) if params[:genre]
     @films = @films.category(current_user.id, params[:category]) if params[:category]
+    @films = @films.tags(current_user.id, params[:tag]) if params[:tag]
   end
 
   def show
@@ -28,14 +33,16 @@ class FilmsController < ApplicationController
       request = client.get(encoded_url)
       # Parse JSON response and delete records that don't belong to 'video' section
       @add_result = ActiveSupport::JSON.decode(request.body).delete_if { |hash| hash['section'] != 'video' }
-      # if subsection is tv shows, use
       @add_result.map do |i|
-        puts 'im in map method'
         doc = Nokogiri::HTML(open("#{ 'http://fs.to' + i['link'] }"))
         itemprop_image = doc.xpath("//img[@itemprop='image']")
+        itemprop_description = doc.xpath("/html/body/div[1]/div/div[2]/div/div[1]/div[2]/div[1]/div[1]/div/div[4]/span/p")
+
+        # Get description
+        i['description'] = itemprop_description.children.text
+
         # Get the link of original image poster through XPath
         if itemprop_image.empty?
-          #  temp image
           i['poster'] = '/assets/help.png'
         else
           i['poster'] = itemprop_image.attr('src').value
@@ -59,6 +66,7 @@ class FilmsController < ApplicationController
       f.category = params['category']
       f.year = params['year']
       f.country = params['country']
+      f.description = params['description']
     end
 
     doc = Nokogiri::HTML(open("#{ @film.link }"))
@@ -83,11 +91,10 @@ class FilmsController < ApplicationController
   end
 
   def update
-    if @film.update_attributes(allowed_params)
-      redirect_to films_path
-    else
-      render 'edit'
-    end
+    @film.tags = params[:tags]
+    @film.save
+
+    redirect_to  root_path
   end
 
   def search
@@ -114,6 +121,14 @@ class FilmsController < ApplicationController
 
   def find_item
     @film = Film.find(params[:id])
+  end
+
+  def update_tags
+    @uniq_tags = []
+    arr = []
+    Film.user_films(current_user.id).to_a.each {|i| arr << i.tags unless i.tags.nil? }
+
+    @uniq_tags = arr.join(', ').split(', ').uniq.reject!(&:empty?)
   end
 
 end

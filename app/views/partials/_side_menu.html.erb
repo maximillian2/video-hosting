@@ -3,7 +3,7 @@
         $("#accordion").accordion({
             active: <% if params.has_key?(:category) %>   0 // category section
             <% elsif params.has_key?(:genre) %>   1 // genres section
-                    <% elsif params.has_key?(:tags)  %>   2 // tags section
+                    <% elsif params.has_key?(:tag)  %>   2 // tags section
             <% else %>                            0 // by default using category behaviour
             <% end %>
         });
@@ -11,10 +11,11 @@
 </script>
 
 <!-- sidebar menu-->
-<h3 id="my_list_header"><%= link_to t('films.side_menu.my_list'), root_path, name: 'film_counter', data: { toggle: 'tooltip'}, title: "all: #{Film.user_films(current_user.id).count.to_s}" %></h3>
+<h3 id="my_list_header"><%= link_to t('films.side_menu.my_list'), root_path, name: 'film_counter', data: { toggle: 'tooltip' }, title: "#{Film.user_films(current_user.id).count.to_s}" %></h3>
 
 <script>
-    $('a[name=film_counter]').tooltip({ /*or use any other selector, class, ID*/
+    $('a[name=film_counter]').tooltip({
+        /*or use any other selector, class, ID*/
         placement: "right",
         trigger: "hover"
     });
@@ -59,7 +60,11 @@
   <h3><%= t('films.side_menu.tags') %></h3>
 
   <div>
-    <p>Not realised yet.</p>
+    <ul class="nav nav-pills nav-stacked">
+    <% @uniq_tags.each do |t| %>
+        <p> <%= link_to_in_li_local t, Film.tags(current_user.id, t).count, tag: t %> </p>
+    <% end %>
+    </ul>
   </div>
 
 </div> <!-- accordion -->

@@ -46,7 +46,7 @@ gem 'rails-i18n'
 # CSS flags
 gem 'famfamfam_flags_rails'
 
-
+gem 'bootstrap_tokenfield_rails'
 # gem 'country_select', github: 'stefanpenner/country_select'
 
 

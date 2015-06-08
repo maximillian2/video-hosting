@@ -13,6 +13,7 @@
 //= require jquery2
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-tokenfield
 //= require jquery.ui.accordion
 //= require turbolinks
 //= require_tree .
