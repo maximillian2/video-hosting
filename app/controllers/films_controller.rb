@@ -92,7 +92,9 @@ class FilmsController < ApplicationController
 
   def update
     @film.tags = params[:tags]
-    @film.save
+    p 'params[:tags'  + params[:tags]
+    p @film.tags
+    p @film.save
 
     redirect_to  root_path
   end
@@ -128,7 +130,9 @@ class FilmsController < ApplicationController
     arr = []
     Film.user_films(current_user.id).to_a.each {|i| arr << i.tags unless i.tags.nil? }
 
-    p @uniq_tags = arr.join(', ').split(', ').uniq.reject!(&:empty?)
+    p 'arr = ' + arr.to_s
+    @uniq_tags = arr.join(', ').split(', ').uniq.reject(&:empty?)
+    p @uniq_tags.to_s
   end
 
 end
