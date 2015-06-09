@@ -11,7 +11,9 @@ a, p, h3 {
 }
 
 body {
-  background-color: #ebebeb;
+  //background-color: #ebebeb;
+  background-image: image-url("concrete_seamless.png");
+  background-repeat:repeat;
   padding-top: 70px;
 }
 
@@ -188,7 +190,7 @@ li.locales {
 }
 
 .top-menu {
-  background-color: #ebebeb;
+  background-color: rgba(235, 235, 235, 0.9);
 }
 
 .modal-text {
