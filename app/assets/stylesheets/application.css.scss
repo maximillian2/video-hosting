@@ -39,7 +39,7 @@ body {
 
 .icon-link .fa {
   &:hover {
-    color: #43AEA8;
+    color: #ef5350;
   }
 }
 
@@ -190,7 +190,9 @@ li.locales {
 }
 
 .top-menu {
-  background-color: rgba(235, 235, 235, 0.9);
+  background-image: image-url("concrete_seamless.png");
+  opacity: 0.9;
+  background-repeat:repeat;
 }
 
 .modal-text {

@@ -81,7 +81,7 @@ class FilmsController < ApplicationController
 
     if @film.save
       @user.films << @film
-      redirect_to films_path
+      redirect_to :back
     else
       render 'new'
     end
