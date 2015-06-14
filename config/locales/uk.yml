@@ -21,6 +21,7 @@ uk:
       cartoon_series: 'Мультсеріали'
       shows: 'Телепередачі'
       concerts: 'Концерти'
+      clips: 'Кліпи'
 
       # Second submenu
       genres: 'Жанри'

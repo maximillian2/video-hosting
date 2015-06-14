@@ -34,6 +34,7 @@
       <%= link_to_in_li_local t('films.side_menu.cartoon_series'), Film.category(current_user.id, 'Мультсериалы').count, category: 'Мультсериалы', id: 'cartoon_series_link' %>
       <%= link_to_in_li_local t('films.side_menu.shows'), Film.category(current_user.id, 'Телепередачи').count, category: 'Телепередачи', id: 'shows_link' %>
       <%= link_to_in_li_local t('films.side_menu.concerts'), Film.category(current_user.id, 'Концерты').count, category: 'Концерты', id: 'concerts_link' %>
+      <%= link_to_in_li_local t('films.side_menu.clips'), Film.category(current_user.id, 'Клипы').count, category: 'Клипы', id: 'clips_link' %>
     </ul>
   </div>
 
