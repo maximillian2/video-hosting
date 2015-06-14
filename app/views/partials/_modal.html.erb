@@ -26,10 +26,9 @@
 
                       <p class="modal-text"> <%= t('modal.year') + edit_film.year.to_s %> </p>
 
-                      <p class="modal-text"> Description: <%= edit_film.description %> </p>
+                      <p class="modal-text"> <%= t('modal.description') + edit_film.description %> </p>
 
-                      <p class="modal-text"> Tags:
-                        <%= text_field_tag('tags', edit_film.tags, placeholder: 'Type tags here...', class: 'tokenize') %>
+                      <p class="modal-text"> <%= t('modal.tags') %> <%= text_field_tag('tags', edit_film.tags, placeholder: 'Type tags here...', class: 'tokenize') %>
                       </p>
                     </div>
                   </div>

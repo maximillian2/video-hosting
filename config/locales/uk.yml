@@ -77,6 +77,7 @@ uk:
         delete_account: 'Видалити акаунт'
         delete_your_account: 'Видалити свій акаунт'
         update_account: 'Оновити інформацію'
+        back: 'Назад'
 
 
     passwords:
@@ -92,6 +93,8 @@ uk:
     genres: 'Жанри: '
     country: 'Країна: '
     year: 'Рік: '
+    description: 'Опис: '
+    tags: 'Теги: '
     save_changes: 'Зберегти зміни'
     delete_record: 'Видалити запис'
 

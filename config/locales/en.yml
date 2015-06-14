@@ -79,6 +79,7 @@ en:
         delete_account: 'Delete account'
         delete_your_account: 'Delete your account'
         update_account: 'Update information'
+        back: 'Back'
 
     passwords:
       new:
@@ -94,6 +95,8 @@ en:
     genres: 'Genres: '
     country: 'Country: '
     year: 'Year: '
+    description: 'Description: '
+    tags: 'Tags: '
     save_changes: 'Save changes'
     delete_record: 'Delete record'
 
