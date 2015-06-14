@@ -28,7 +28,7 @@
 
                       <p class="modal-text"> <%= t('modal.description') + edit_film.description %> </p>
 
-                      <p class="modal-text"> <%= t('modal.tags') %> <%= text_field_tag('tags', edit_film.tags, placeholder: 'Type tags here...', class: 'tokenize') %>
+                      <p class="modal-text"> <%= t('modal.tags') %> <%= text_field_tag('tags', edit_film.tags, placeholder: t('modal.type_tags'), class: 'tokenize') %>
                       </p>
                     </div>
                   </div>

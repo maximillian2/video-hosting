@@ -107,6 +107,7 @@ uk:
     year: 'Рік: '
     description: 'Опис: '
     tags: 'Теги: '
+    type_tags: 'Введіть теги...'
     save_changes: 'Зберегти зміни'
     delete_record: 'Видалити запис'
 

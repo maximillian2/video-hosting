@@ -97,6 +97,7 @@ en:
     year: 'Year: '
     description: 'Description: '
     tags: 'Tags: '
+    type_tags: 'Type tags here...'
     save_changes: 'Save changes'
     delete_record: 'Delete record'
 
