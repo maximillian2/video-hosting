@@ -4,6 +4,7 @@
     <fieldset>
       <legend class="signup-border"> <%= t('users.sessions.new.legend_label') %> </legend>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
           <div class="form-group normal-width">
             <%= f.email_field :email, class: 'form-control', placeholder: t('users.sessions.new.email_label') %>
           </div>

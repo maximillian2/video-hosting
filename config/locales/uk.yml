@@ -1,4 +1,16 @@
 uk:
+  activerecord:
+    attributes:
+      user:
+        email: 'Пошта'
+        password: "Пароль"
+        password_confirmation: "Підтвердження пароля"
+  errors:
+    messages:
+      not_saved: 'Помилки при реєстрації: '
+  user:
+      email: 'Пошта'
+
   films:
     index:
       add_materials: 'Додати матеріалів.'
@@ -57,25 +69,25 @@ uk:
         email_label: 'Електронна адреса'
         password_label: 'Пароль'
         remember_me: "Запам'ятати мене"
-        login_label: 'Ввійти'
+        login_label: 'Увійти'
 
     # Sign up form
     registrations:
       new:
         legend_label: 'Реєстрація'
         retype_password: 'Введіть пароль ще раз'
-        signup_label: 'Зареєструватися'
+        signup_label: 'Зареєструватись'
         forgot_password: 'Забули пароль?'
         minimum_chars: "(%{number} символів якнайменше)"
 
       edit:
         edit_account_header: 'Редагування акаунту користувача'
         password_confirmation: 'Підтвердження паролю'
-        maybe_blank_password: '(залиште порожнім, якщо не хочете змінювати його)'
+        maybe_blank_password: '(залиште порожнім, якщо ви не хочете змінити його)'
         current_password: 'Поточний пароль'
-        current_password_info: '(нам потрібен ваш поточний пароль для підтвердження змін)'
+        current_password_info: '(введіть свій поточний пароль для підтвердження змін)'
         delete_account: 'Видалити акаунт'
-        delete_your_account: 'Видалити свій акаунт'
+        delete_your_account: 'Скасувати мій обліковий запис'
         update_account: 'Оновити інформацію'
         back: 'Назад'
 
