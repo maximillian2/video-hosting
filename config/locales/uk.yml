@@ -2,7 +2,7 @@ uk:
   activerecord:
     attributes:
       user:
-        email: 'Пошта'
+        email: 'Електронна адреса'
         password: "Пароль"
         password_confirmation: "Підтвердження пароля"
   errors:
